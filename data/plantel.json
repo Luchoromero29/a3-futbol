@@ -1,0 +1,167 @@
+{
+    "players": [
+      {
+        "id": 1,
+        "name": "Jugador 1",
+        "image": "jugador1.jpg",
+        "nro": "9",
+        "nacionality": "Argentina",
+        "birthdate": "1995-06-15T00:00:00Z",
+        "height": "1.85",
+        "weight": "80",
+        "legEnabled": "Derecha",
+        "trayectoria": "Club A, Club B",
+        "observaciones": "Goleador del equipo"
+      },
+      {
+        "id": 2,
+        "name": "Jugador 2",
+        "image": "jugador2.jpg",
+        "nro": "10",
+        "nacionality": "Uruguay",
+        "birthdate": "1993-02-20T00:00:00Z",
+        "height": "1.78",
+        "weight": "75",
+        "legEnabled": "Izquierda",
+        "trayectoria": "Club C, Club D",
+        "observaciones": "Especialista en tiros libres"
+      },
+      {
+        "id": 3,
+        "name": "Jugador 3",
+        "image": "jugador3.jpg",
+        "nro": "5",
+        "nacionality": "Colombia",
+        "birthdate": "1997-11-11T00:00:00Z",
+        "height": "1.80",
+        "weight": "77",
+        "legEnabled": "Derecha",
+        "trayectoria": "Club E, Club F",
+        "observaciones": "Buen manejo del mediocampo"
+      },
+      {
+        "id": 4,
+        "name": "Jugador 4",
+        "image": "jugador4.jpg",
+        "nro": "1",
+        "nacionality": "Argentina",
+        "birthdate": "1990-04-05T00:00:00Z",
+        "height": "1.90",
+        "weight": "85",
+        "legEnabled": "Derecha",
+        "trayectoria": "Club G, Club H",
+        "observaciones": "Arquero titular"
+      },
+      {
+        "id": 5,
+        "name": "Jugador 5",
+        "image": "jugador5.jpg",
+        "nro": "8",
+        "nacionality": "Chile",
+        "birthdate": "1996-03-18T00:00:00Z",
+        "height": "1.75",
+        "weight": "72",
+        "legEnabled": "Izquierda",
+        "trayectoria": "Club I, Club J",
+        "observaciones": "Rápido y habilidoso"
+      },
+      {
+        "id": 6,
+        "name": "Jugador 6",
+        "image": "jugador6.jpg",
+        "nro": "3",
+        "nacionality": "Paraguay",
+        "birthdate": "1994-12-30T00:00:00Z",
+        "height": "1.82",
+        "weight": "78",
+        "legEnabled": "Derecha",
+        "trayectoria": "Club K, Club L",
+        "observaciones": "Defensa central seguro"
+      },
+      {
+        "id": 7,
+        "name": "Jugador 7",
+        "image": "jugador7.jpg",
+        "nro": "7",
+        "nacionality": "Perú",
+        "birthdate": "1998-08-21T00:00:00Z",
+        "height": "1.76",
+        "weight": "70",
+        "legEnabled": "Derecha",
+        "trayectoria": "Club M, Club N",
+        "observaciones": "Delantero rápido"
+      },
+      {
+        "id": 8,
+        "name": "Jugador 8",
+        "image": "jugador8.jpg",
+        "nro": "4",
+        "nacionality": "Brasil",
+        "birthdate": "1992-01-25T00:00:00Z",
+        "height": "1.88",
+        "weight": "83",
+        "legEnabled": "Izquierda",
+        "trayectoria": "Club O, Club P",
+        "observaciones": "Defensa lateral"
+      },
+      {
+        "id": 9,
+        "name": "Jugador 9",
+        "image": "jugador9.jpg",
+        "nro": "11",
+        "nacionality": "México",
+        "birthdate": "1991-07-14T00:00:00Z",
+        "height": "1.83",
+        "weight": "79",
+        "legEnabled": "Derecha",
+        "trayectoria": "Club Q, Club R",
+        "observaciones": "Buen definidor"
+      },
+      {
+        "id": 10,
+        "name": "Jugador 10",
+        "image": "jugador10.jpg",
+        "nro": "6",
+        "nacionality": "Venezuela",
+        "birthdate": "1999-05-10T00:00:00Z",
+        "height": "1.84",
+        "weight": "76",
+        "legEnabled": "Derecha",
+        "trayectoria": "Club S, Club T",
+        "observaciones": "Versátil en el mediocampo"
+      }
+    ],
+    "positions": [
+      {
+        "name": "DELANTEROS",
+        "players": [1, 2, 7, 9],
+        "id": 1
+      },
+      {
+        "name": "DEFENSORES",
+        "players": [3, 6, 8],
+        "id": 2
+      },
+      {
+        "name": "MEDIOCAMPISTAS",
+        "players": [5, 10],
+        "id": 3
+      },
+      {
+        "name": "ARQUEROS",
+        "players": [4],
+        "id": 4
+      },
+      {
+        "name": "SIN ASIGNAR",
+        "players": [],
+        "id": 5
+      }
+    ],
+    "team": {
+      "id": 1,
+      "name": "Boca Juniors",
+      "escudo": "../../assets/mi_club/fichas_escudos/escudo_boca_juniors.png"
+    }
+  }
+  

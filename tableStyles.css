@@ -1,0 +1,111 @@
+.styles-table {
+    width: 100% !important;
+    border-collapse: collapse; /* Sin espacio entre celdas */
+    margin: 0 !important;
+  }
+  
+  .styles-table th, .styles-table td {
+    padding: 10px; /* Espaciado entre el contenido y las celdas */
+    text-align: left; /* Alineación del texto */
+    font-size: 0.875rem; /* text-sm */
+  }
+  
+  /* Hover en las filas normales */
+  .styles-table tbody tr:hover {
+    background-color: #f5f5f5; /* Gris clarito en hover */
+  }
+  
+  /* Estilo para las filas seleccionadas */
+  .styles-table tbody tr.selected-row {
+    color: #38a169 !important;  /* Texto en verde */
+  }
+  
+  /* Hover en las filas seleccionadas (verde claro) */
+  .styles-table tbody tr.selected-row:hover {
+    background-color: #d2f8de; /* Verde clarito en hover */
+  }
+  
+  /* Bordes opcionales en las celdas */
+  .styles-table th, .styles-table td {
+    border-bottom: 1px solid #ddd; /* Líneas suaves entre filas */
+  }
+
+  .dataTables_filter, .dataTables_length {
+    margin: 15px 0px;
+  }
+
+  .dataTables_wrapper {
+    overflow: hidden;
+  }
+
+#columna-seleccion-1{
+  width: 70px !important;
+}
+
+  .select-button {
+    transition: background-color 0.3s !important; 
+    position: relative;
+}
+.fav-selected{
+    stroke: var(--green) !important;
+    color: var(--green) !important;
+    fill-rule: evenodd !important;
+}
+.fav-selected path{
+    fill: var(--green) !important;
+    fill-rule: evenodd !important;
+}
+.fav-selected:hover{
+    color: rgb(153, 153, 153);
+}
+
+.selected-row button img{
+  display: block;
+}
+
+.selected-row button {
+  background-color: var(--green);
+}
+
+.selected-row td{
+  color: var(--green) !important;
+}
+
+.dt-head-center {
+  text-align: center; /* Centra el contenido horizontalmente */
+  vertical-align: middle; /* Centra el contenido verticalmente */
+}
+
+
+
+/* Checkmark personalizado */
+/* .select-button-content {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.select-button-content::before {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    background-color: transparent;
+    border: 2px solid #d1d5db; /* Gris claro 
+    transition: background-color 0.3s ease;
+}
+
+input[type="checkbox"]:checked + .select-button-content::before {
+    background-color: #10b981; /* Verde 
+    border-color: #10b981; /* Verde 
+}
+
+input[type="checkbox"]:checked + .select-button-content img {
+    display: block; /* Imagen visible cuando está seleccionado 
+}
+
+input[type="checkbox"]:not(:checked) + .select-button-content img {
+    display: none; /* Imagen oculta cuando no está seleccionado 
+} */

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+    <script src="shareModal.js"></script>
+    <script src="presentationsTable.js"></script>
+    <script src="usersTable.js"></script>
+    <script src="navigation.js"></script>
+    <script src="./tailwind.config.js"></script>
+    <title>Pizarra A3</title>
+</head>
+<body class="flex flex-col bg-lightGrayBg "> 
+    <!-- Usuario en header-->
+    <header class="w-full flex justify-end bg-white min-h-[70px]">
+        <div class="flex gap-2 items-center px-8 cursor-pointer text-sm xl:text-base">
+            <img class="w-[40px] rounded-full" src="assets/avatar_test/avatar09.jpg" alt="">
+            <div id="profile-header" class="relative">
+                <p class="font-medium text-black hover:text-green">Nombre de la Cuenta</p>
+                <div class="hidden absolute z-50 flex flex-col w-full bg-white border border-grayBg rounded-md text-sm">
+                    <button 
+                        id="change-photo-btn"
+                        class="py-2 gap-1 hover:text-green hover:bg-lightGrayBg flex items-center pl-[15%] rounded-t-md">
+                        <img 
+                            class="h-5 w-5 inline rounded-full bg-grayBg" 
+                            src="assets/imgs/14 lapiz hover.png"
+                            alt="">
+                        Cambiar foto
+                    </button>
+                    <button 
+                        id="sign-out-btn"
+                        class="py-2 gap-1 hover:text-green hover:bg-lightGrayBg flex items-center pl-[15%] rounded-b-md">
+                        <img 
+                            class="h-5 w-5 inline" 
+                            src="assets/imgs/off.png"
+                            original-src="assets/imgs/off.png"
+                            data-hover-src="assets/imgs/offHover.png"
+                            alt="">
+                        Cerrar sesión
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+    <!-- Contenido General -->
+    <main class="bg-lightGrayBg w-full pl-[20%] h-full pb-10
+                flex-1 flex flex-col items-center justify-between 
+                relative text-sm xl:text-base">
+        <!-- Panel de Navegación -->
+        <section class="w-[22%] bg-black fixed h-full left-0 top-0 flex flex-col items-center gap-8">
+            <!-- Logo  -->
+            <div class="w-full flex justify-center bg-green items-center h-[70px] bg-gradient-to-t from-black/50 to-50%">
+                <img class="w-2/5 text-center" src="assets/imgs/-- Marca.png" alt="">
+            </div>
+            <nav class="w-full text-grayBg">
+                <ul class="flex flex-col items-start gap-6 font-bold">
+                    <li id="inicio" class="left-nav-item hover:text-white cursor-pointer">
+                        <div class="flex w-full px-8 gap-4 justify-start items-center">
+                            <img class="w-8" src="assets/imgs/1 Boton panel.png"/>
+                            <p class=" text-white">Inicio</p>
+                        </div>
+                    </li>
+                    <li id="usuarios" class="left-nav-item hover:text-white w-full">
+                        <div class="flex w-full px-8 justify-between items-center cursor-pointer">
+                            <div class="flex items-center gap-4">
+                                <img class="w-8" src="assets/imgs/2 Boton panel.png"/>
+                                <p class="">Usuarios</p>
+                            </div>
+                            <img class="icon-chevron transition-transform w-6" src="assets/imgs/6.png" alt="">
+                        </div>
+												
+                    </li>
+                    <li class="left-nav-item hover:text-white w-full">
+                        <div class="flex w-full px-8 justify-between items-center cursor-pointer">
+                            <div class="flex items-center gap-4">
+                                <img class="w-8" src="assets/imgs/3 Boton panel.png"/>
+                                <p>Institucional</p>
+                            </div>
+                            <img class="icon-chevron transition-transform w-6" src="assets/imgs/6.png" alt="">
+                        </div>
+                    </li>
+                    <li class="left-nav-item w-full">
+                        <div class="toggle-list flex w-full px-8 justify-between items-center hover:text-white cursor-pointer relative z-10">
+                            <div class="flex items-center gap-4">
+                                <img class="w-8" src="assets/imgs/4 Boton panel.png"/>
+                                <p>Presentaciones</p>
+                            </div>
+                            <img class="icon-chevron transition-transform w-6" src="assets/imgs/6.png" alt="">
+                        </div>
+                        <ul class="opacity-0 w-full pl-[3rem] flex flex-col mt-4 font-normal gap-4 transition-all duration-300 ease-in-out transform -translate-y-1/2">
+                            <li class="menu-item-dropdown hover:text-white flex justify-start items-center cursor-pointer">
+                                <p>Agregar presentación</p>
+                            </li>
+                            <li id="lista" class="menu-item-dropdown hover:text-white flex w-3/4 justify-start items-center cursor-pointer">
+                                <p>Lista</p>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <!-- Sistema deportes -->
+            <div 
+                id="sistema-deportes" 
+                class="flex items-center gap-2 w-full justify-start 
+                        absolute bottom-6 cursor-pointer pl-8
+                        text-green  hover:text-white">
+                <img 
+                    class="w-10 h-10"
+                    src="assets/imgs/5 consulta.png" 
+                    original-src="assets/imgs/5 consulta.png"
+                    data-hover-src="assets/imgs/5 consulta hover.png"
+                    alt=""
+                    >
+                <p>Sistema Deportes</p>
+            </div>
+        </section>
+
+        <div id="main-content">
+				<!--- Para roman: Contenido de la pagina aqui !-->
+				
+				
+				</div>
+
+       
+    </main>
+
+		<style>
+		#pr-table th, #users-table th {
+				font-size: 15px;
+				box-sizing: border-box;
+		}
+		</style>
+    
+</body>
+</html>

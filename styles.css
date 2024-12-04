@@ -1,0 +1,225 @@
+@font-face {
+    font-family: "Handgot";
+    src: url('./fonts/handgotb.TTF');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Handgot";
+    src: url('./fonts/handgotl.TTF');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Handgot';
+    font-weight: normal;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: rgb(244, 245, 246);
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgb(153, 153, 153);
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(48, 48, 48);
+}
+
+.bold-text {
+    font-weight: bold;
+}
+
+table {
+    background-color: white;
+}
+
+.blur-background {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 49;
+    background-color: rgba(48, 48, 48, 0.389);
+
+}
+
+/* Estilos de la tabla */
+
+
+.added-user-permission {
+    color: rgb(153, 153, 153) !important;
+}
+
+.added-user-permission img {
+    border-color: rgb(153, 153, 153) !important;
+    filter: grayscale(100%);
+}
+
+.input-error {
+    margin: 30px;
+}
+
+/* SECCION DE CSS PARA MI CLUB */
+
+.bg-image {
+    background-image: url('assets/mi_club/4.png');
+    background-size: cover;
+    width: 24px;
+    height: 24px;
+}
+
+.bg-image:hover {
+    background-image: url('assets/mi_club/4 hover.png');
+}
+
+.hover-trigger:hover .hover-img {
+    content: url('assets/mi_club/4 hover.png');
+    transition: all 0.2s ease-in-out;
+    /* Cambia la imagen al hacer hover */
+}
+
+.left-nav-item:hover img.icon-chevron,
+.left-nav-item:focus-within img.icon-chevron {
+    transform: rotate(90deg);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Mantener la rotación al hacer focus */
+.left-nav-item:focus-within img.icon-chevron {
+    transform: rotate(90deg);
+}
+
+:root {
+    --green: rgb(62, 177, 110);
+    --dark-green: rgb(44, 125, 78);
+    --light-green: rgb(216, 240, 226);
+    --gray-bg: rgb(153, 153, 153);
+    --dark-gray-bg:rgb(102, 102, 102);
+    --black: rgb(48, 48, 48);
+    --light-gray-bg: rgb(244, 245, 246);
+    --lines-color: rgb(230, 230, 230);
+
+}
+
+
+/* ANIMACION DE APARICION */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+        /* Mover ligeramente hacia abajo */
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Clase para aplicar la animación de aparición */
+.fade-in {
+    opacity: 0;
+    /* Oculto al inicio */
+    animation: fadeIn 0.5s ease forwards;
+    /* Aparece en 1s con una transición suave */
+}
+
+
+/* ANIMACION DEL LOADING */
+.loading-ball {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Borde negro estático */
+.loading-ball::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 5px solid rgb(48, 48, 48); /* Borde negro */
+    box-sizing: border-box;
+}
+
+/* Anillo giratorio verde */
+.loading-ball::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 5px solid transparent;
+    border-top: 5px solid rgb(62, 177, 110); /* Borde superior verde */
+    animation: rotate 1s linear infinite;
+    box-sizing: border-box;
+}
+
+/* Animación de rotación */
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* estilos de botones de gaurdar cancelar */
+.cancel-style {
+    color: white;
+    background-color: var(--gray-bg);
+    cursor: pointer;
+
+}
+
+.cancel-style:hover {
+    background-color: var(--dark-gray-bg);
+}
+
+.save-style{
+    color: white;
+    background-color: var(--green);
+    cursor: pointer;
+}
+
+.save-style:hover{
+    background-color: var(--dark-green);
+}
+
+.hover-dark:hover{
+    transition: all 0.2s ease-in-out;
+    filter: grayscale(20%) !important;
+}

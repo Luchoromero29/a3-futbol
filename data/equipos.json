@@ -1,0 +1,167 @@
+[
+  {
+    "id": 1,
+    "nombre": "Vélez Sarsfield",
+    "escudo": "../../assets/mi_club/fichas_escudos/escudo_velez_sarfield.png",
+    "arquero": "../../assets/mi_club/fichas_escudos/7.png",
+    "jugador": "../../assets/mi_club/fichas_escudos/5.png",
+    "suplente": "../../assets/mi_club/fichas_escudos/6.png",
+    "liga": "Superliga Argentina",
+    "create": "2023-05-10T14:30:00",
+    "update": "2024-02-20T11:45:00"
+  },
+  {
+    "id": 2,
+    "nombre": "Boca Juniors",
+    "escudo": "../../assets/mi_club/fichas_escudos/escudo_boca_juniors.png",
+    "arquero": "../../assets/mi_club/fichas_escudos/7.png",
+    "jugador": "../../assets/mi_club/fichas_escudos/2.png",
+    "suplente": "../../assets/mi_club/fichas_escudos/3.png",
+    "liga": "Copa Argentina",
+    "create": "2022-09-15T09:00:00",
+    "update": "2024-01-10T16:00:00"
+  },
+  {
+    "id": 3,
+    "nombre": "Defensa y Justicia",
+    "escudo": "../../assets/mi_club/fichas_escudos/escudo_defensa_y_justicia.png",
+    "arquero": "../../assets/mi_club/fichas_escudos/7.png",
+    "jugador": "../../assets/mi_club/fichas_escudos/8.png",
+    "suplente": "../../assets/mi_club/fichas_escudos/9.png",
+    "liga": "Superliga Argentina",
+    "create": "2023-07-12T17:20:00",
+    "update": "2024-03-01T13:30:00"
+  },
+  {
+    "id": 4,
+    "nombre": "Vélez Sarsfield",
+    "escudo": "../../assets/mi_club/fichas_escudos/escudo_velez_sarfield.png",
+    "arquero": "../../assets/mi_club/fichas_escudos/7.png",
+    "jugador": "../../assets/mi_club/fichas_escudos/5.png",
+    "suplente": "../../assets/mi_club/fichas_escudos/6.png",
+    "liga": "Superliga Argentina",
+    "create": "2023-05-10T14:30:00",
+    "update": "2024-02-20T11:45:00"
+  },
+  {
+    "id": 5,
+    "nombre": "Boca Juniors",
+    "escudo": "../../assets/mi_club/fichas_escudos/escudo_boca_juniors.png",
+    "arquero": "../../assets/mi_club/fichas_escudos/7.png",
+    "jugador": "../../assets/mi_club/fichas_escudos/2.png",
+    "suplente": "../../assets/mi_club/fichas_escudos/3.png",
+    "liga": "Copa Argentina",
+    "create": "2022-09-15T09:00:00",
+    "update": "2024-01-10T16:00:00"
+  },
+  {
+    "id": 6,
+    "nombre": "Defensa y Justicia",
+    "escudo": "../../assets/mi_club/fichas_escudos/escudo_defensa_y_justicia.png",
+    "arquero": "../../assets/mi_club/fichas_escudos/7.png",
+    "jugador": "../../assets/mi_club/fichas_escudos/8.png",
+    "suplente": "../../assets/mi_club/fichas_escudos/9.png",
+    "liga": "Superliga Argentina",
+    "create": "2023-07-12T17:20:00",
+    "update": "2024-03-01T13:30:00"
+  },
+  {
+    "id": 7,
+    "nombre": "Vélez Sarsfield",
+    "escudo": "../../assets/mi_club/fichas_escudos/escudo_velez_sarfield.png",
+    "arquero": "../../assets/mi_club/fichas_escudos/7.png",
+    "jugador": "../../assets/mi_club/fichas_escudos/5.png",
+    "suplente": "../../assets/mi_club/fichas_escudos/6.png",
+    "liga": "Superliga Argentina",
+    "create": "2023-05-10T14:30:00",
+    "update": "2024-02-20T11:45:00"
+  },
+  {
+    "id": 8,
+    "nombre": "Boca Juniors",
+    "escudo": "../../assets/mi_club/fichas_escudos/escudo_boca_juniors.png",
+    "arquero": "../../assets/mi_club/fichas_escudos/7.png",
+    "jugador": "../../assets/mi_club/fichas_escudos/2.png",
+    "suplente": "../../assets/mi_club/fichas_escudos/3.png",
+    "liga": "Copa Argentina",
+    "create": "2022-09-15T09:00:00",
+    "update": "2024-01-10T16:00:00"
+  },
+  {
+    "id": 9,
+    "nombre": "Defensa y Justicia",
+    "escudo": "../../assets/mi_club/fichas_escudos/escudo_defensa_y_justicia.png",
+    "arquero": "../../assets/mi_club/fichas_escudos/7.png",
+    "jugador": "../../assets/mi_club/fichas_escudos/8.png",
+    "suplente": "../../assets/mi_club/fichas_escudos/9.png",
+    "liga": "Superliga Argentina",
+    "create": "2023-07-12T17:20:00",
+    "update": "2024-03-01T13:30:00"
+  },
+  {
+    "id": 10,
+    "nombre": "Vélez Sarsfield",
+    "escudo": "../../assets/mi_club/fichas_escudos/escudo_velez_sarfield.png",
+    "arquero": "../../assets/mi_club/fichas_escudos/7.png",
+    "jugador": "../../assets/mi_club/fichas_escudos/5.png",
+    "suplente": "../../assets/mi_club/fichas_escudos/6.png",
+    "liga": "Superliga Argentina",
+    "create": "2023-05-10T14:30:00",
+    "update": "2024-02-20T11:45:00"
+  },
+  {
+    "id": 11,
+    "nombre": "Boca Juniors",
+    "escudo": "../../assets/mi_club/fichas_escudos/escudo_boca_juniors.png",
+    "arquero": "../../assets/mi_club/fichas_escudos/7.png",
+    "jugador": "../../assets/mi_club/fichas_escudos/2.png",
+    "suplente": "../../assets/mi_club/fichas_escudos/3.png",
+    "liga": "Copa Argentina",
+    "create": "2022-09-15T09:00:00",
+    "update": "2024-01-10T16:00:00"
+  },
+  {
+    "id": 12,
+    "nombre": "Defensa y Justicia",
+    "escudo": "../../assets/mi_club/fichas_escudos/escudo_defensa_y_justicia.png",
+    "arquero": "../../assets/mi_club/fichas_escudos/7.png",
+    "jugador": "../../assets/mi_club/fichas_escudos/8.png",
+    "suplente": "../../assets/mi_club/fichas_escudos/9.png",
+    "liga": "Superliga Argentina",
+    "create": "2023-07-12T17:20:00",
+    "update": "2024-03-01T13:30:00"
+  },
+  {
+    "id": 13,
+    "nombre": "Vélez Sarsfield",
+    "escudo": "../../assets/mi_club/fichas_escudos/escudo_velez_sarfield.png",
+    "arquero": "../../assets/mi_club/fichas_escudos/7.png",
+    "jugador": "../../assets/mi_club/fichas_escudos/5.png",
+    "suplente": "../../assets/mi_club/fichas_escudos/6.png",
+    "liga": "Superliga Argentina",
+    "create": "2023-05-10T14:30:00",
+    "update": "2024-02-20T11:45:00"
+  },
+  {
+    "id": 14,
+    "nombre": "Boca Juniors",
+    "escudo": "../../assets/mi_club/fichas_escudos/escudo_boca_juniors.png",
+    "arquero": "../../assets/mi_club/fichas_escudos/7.png",
+    "jugador": "../../assets/mi_club/fichas_escudos/2.png",
+    "suplente": "../../assets/mi_club/fichas_escudos/3.png",
+    "liga": "Copa Argentina",
+    "create": "2022-09-15T09:00:00",
+    "update": "2024-01-10T16:00:00"
+  },
+  {
+    "id": 15,
+    "nombre": "Defensa y Justicia",
+    "escudo": "../../assets/mi_club/fichas_escudos/escudo_defensa_y_justicia.png",
+    "arquero": "../../assets/mi_club/fichas_escudos/7.png",
+    "jugador": "../../assets/mi_club/fichas_escudos/8.png",
+    "suplente": "../../assets/mi_club/fichas_escudos/9.png",
+    "liga": "Superliga Argentina",
+    "create": "2023-07-12T17:20:00",
+    "update": "2024-03-01T13:30:00"
+  }
+]
