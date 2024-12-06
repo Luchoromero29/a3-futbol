@@ -1,0 +1,99 @@
+[
+    {
+        "name": "Datos Generales",
+        "icon": "../../assets/imgs/notebook-black.png",
+        "iconHover": "../../assets/imgs/notebook-green.png",
+        "campos": [
+            {
+                "id": 1,
+                "label": "Nombre",
+                "type": 1,
+                "value": "Juan Pérez"
+            },
+            {
+                "id": 2,
+                "label": "Posición",
+                "type": 1,
+                "value": "Delantero"
+            },
+            {
+                "id": 3,
+                "label": "Arquero",
+                "type": 4,
+                "value": false
+            },
+            {
+                "id": 4,
+                "label": "Capitán",
+                "type": 4,
+                "value": true
+            },
+            {
+                "id": 5,
+                "label": "Suplente",
+                "type": 4,
+                "value": false
+            },
+            {
+                "id": 6,
+                "label": "N° Camiseta",
+                "type": 2,
+                "value": 10
+            },
+            {
+                "id": 7,
+                "label": "Nacionalidad",
+                "type": 1,
+                "value": "Argentina"
+            },
+            {
+                "id": 8,
+                "label": "Nacimiento",
+                "type": 1,
+                "value": "1998-05-12"
+            },
+            {
+                "id": 9,
+                "label": "Edad",
+                "type": 2,
+                "value": 26
+            },
+            {
+                "id": 10,
+                "label": "Peso",
+                "type": 3,
+                "value": 75.5
+            },
+            {
+                "id": 11,
+                "label": "Altura",
+                "type": 3,
+                "value": 1.82
+            },
+            {
+                "id": 12,
+                "label": "Pierna Hábil",
+                "type": 1,
+                "value": "Derecha"
+            },
+            {
+                "id": 13,
+                "label": "Trayectoria",
+                "type": 5,
+                "value": "Club A, Club B, Club C"
+            },
+            {
+                "id": 14,
+                "label": "Observaciones",
+                "type": 6,
+                "value": "Jugador con excelente rendimiento en torneos internacionales. Potencial para liderazgo en el campo."
+            },
+            {
+                "id": 15,
+                "label": "Foto",
+                "type": 1,
+                "value": "../../assets/avatar_test/avatar01.jpg"
+            }
+        ]
+    }
+]

@@ -22,7 +22,7 @@
     <script src="../../script.js"></script>
 
     <!-- Scripts de la tabla -->
-    <script src="rivalesTable.js"></script>
+    <script type="module" src="rivalesTable.js"></script>
 
 
     <script src="../../shareModal.js"></script>

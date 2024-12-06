@@ -1,29 +1,33 @@
-import { generateUserInfoModal } from '../user/generalUserInfoModal.js';
+import { calcularFecha } from "../../utilities/functionsUtils.js";
+import { dataPlayers2 } from './miplantel.js';
+
 
 //Variables necesarias
-let dataPlantel;
-let dataPlayers;
-let dataPositions;
-let dataTeam;
+export let dataPlantel;
+export let dataPlayers;
+export let dataPositions;
+export let dataTeam;
 
-let selectedUsersRowsCount = 0;
-let selectedUsersRowsArray = []
+//id de la tabla
+const idTable = "#miplantel-table"
+const itemId = "player_id" 
+const itemName = "player"
+
+console.log("Desde el js, imprimo los datos del php", dataPlayers2);
+
+
+let selectedRowsCount = 0;
+let selectedRowsArray = []
 
 document.addEventListener("DOMContentLoaded", async () => {
     await getData();
-    console.log(dataPlayers);
-    console.log(dataTeam);
-    console.log(dataPositions);
-    
     initMiplantelTable();
 });
-
-
 
 const dataTableConfig = {
     columnDefs: [
         {
-            targets: [0, 1, 3, 4], // Columnas no ordenables
+            targets: [0, 1, 3, 4, 5, 6], // Columnas no ordenables
             orderable: false
         },
         {
@@ -31,7 +35,7 @@ const dataTableConfig = {
             width: '60px'
         },
         {
-            targets: [3], // Columna con estilo gris
+            targets: [3,4,5],
             className: 'text-grayBg'
         }
     ],
@@ -76,32 +80,26 @@ const getDataPlantel = async () => {
 }
 
 const getData = async () => {
-    dataPlantel = await getDataPlantel();
-    console.log(dataPlantel);
-    
+    dataPlantel = await getDataPlantel();  
     dataPlayers = dataPlantel.players
     dataPositions = dataPlantel.positions;
     dataTeam = dataPlantel.team;
 }
 //Inizializacion de la tabla de usuarios
-const initMiplantelTable = async () => {
-
-    let users = await getUsers();
+const initMiplantelTable = async () => {;
 
     const dataTable = $('#miplantel-table').DataTable(dataTableConfig);
 
-
     //Agregar Usuarios a la tabla
-
-
-        users.forEach(function (item) {
+        dataPlayers.forEach((item, index) => {
             const row = dataTable.row.add([
                 // Botón seleccionar
                 `<div class="flex gap-2 items-center">
-                    <button class="select-button w-5 h-5 border-2 border-gray-300 rounded-md hover:border-green focus:outline-none transition-all relative" onclick="toggleCheckbox(this)">
-                        <img id="select-button-icon" src="assets/imgs/3.png" alt="" class="hidden w-full h-full" />   
+                    <button class="select-row-button w-5 h-5 border-2 border-gray-300 rounded-md hover:border-green focus:outline-none transition-all relative" onclick="toggleCheckbox(this)">
+                        <img id="select-row-button-icon" src="../../assets/imgs/3.png" alt="" class="hidden w-full h-full" />   
                     </button>
                 </div>`,
+                (index + 1),
                 `<div class="flex gap-3 items-center">
                     <div
                     class="w-9 h-9 bg-green p-0.5 rounded-full overflow-hidden">
@@ -111,34 +109,35 @@ const initMiplantelTable = async () => {
                         alt="User Avatar">
                     </div>
                     <span>
-                        ${calcularEdad(item.birthdate)}
+                        ${item.name}
                     </span>
                 </div>`,
-                item.nombre,
-                item.rol,
+                item.position,
+                calcularFecha(item.createdAt),
+                calcularFecha(item.updatedAt),
                 `<div class="flex gap-2 items-center justify-end">
-                    <button class="iconShowInfoUser row-action-button w-7 h-7" data-user='${JSON.stringify(item)}'>
+                    <button onclick="showInfoPlayer(this)" id="button-show-player" class="iconShowInfoUser row-action-button w-8 h-8" data-${itemId}='${JSON.stringify(item.id)}'>
                         <img 
-                            class="w-7 bg-black rounded-md border-2 border-grayBg hover:bg-green" 
-                            src="assets/imgs/1 Hover de lo que era la lupa original.png"
+                            class="w-8 bg-black rounded-md border-2 border-grayBg hover:bg-green" 
+                            src="../../assets/imgs/1 Hover de lo que era la lupa original.png"
                         />
                     </button>
-                    <a href="user.php?id=${item.id}&to=miplantel.php" class="row-action-button w-7 h-7">
+                    <a  id="" class="row-action-button w-8 h-8">
                         <img 
-                            class="w-7 bg-green rounded-md border-2 border-grayBg hover:bg-black" 
-                            src="assets/imgs/14 lapiz hover.png"
+                            class="w-10 bg-black rounded-md border-2 border-grayBg hover:bg-green" 
+                            src="../../assets/imgs/arrow-tr-white.png"
                         />
                     </a> 
-                    <a href="/users/${item.id}/delete/" data-user='${JSON.stringify(item)}' data-toggle="confirmation" class="row-action-button w-7 h-7 iconDeleteUser">
+                    <a href="/users/${item.id}/delete/" data-${itemName}='${JSON.stringify(item)}' data-toggle="confirmation" class="row-action-button flex justify-center items-center w-8 h-8 iconDeleteRow">
                         <img 
-                            class="w-7 bg-green rounded-md border-2 border-grayBg hover:bg-black" 
-                            src="assets/imgs/10 eliminar hover.png"
+                            class="w-8 bg-black rounded-md border-2 border-grayBg hover:bg-green " 
+                            src="../../assets/imgs/18 eliminar hover.png"
                         />
                     </a>
                 </div>`
             ]).draw().node();
 
-            $(row).attr('user_id', item.id);
+            $(row).attr(`${itemId}`, item.id);
         });
         
         // Agregar el atributo pr-id a la fila
@@ -149,22 +148,24 @@ const initMiplantelTable = async () => {
 
 
     // Hover sobre las row texto negro
-    $('#miplantel-table tbody').on('mouseenter', 'tr', function () {
+    $(`${idTable} tbody`).on('mouseenter', 'tr', function () {
         const row = $(this);
         row.find('td').addClass('!text-black');
-        row.find('td:first-child button.select-button').addClass('border-black');
+        row.find('td:first-child button.select-row-button').addClass('border-black');
     });
 
-    $('#miplantel-table tbody').on('mouseleave', 'tr', function () {
+    $(`${idTable} tbody`).on('mouseleave', 'tr', function () {
         const row = $(this);
         row.find('td').removeClass('!text-black');
-        row.find('td:first-child button.select-button').removeClass('border-black');
+        row.find('td:first-child button.select-row-button').removeClass('border-black');
     });
 
-    $('#deselectAllButton').on('click', function () {
-        deselectAllUsersRows();
+    // Botón de seleccionar todos los usuarios despues de que esten selecionados
+    $('#deselectAllRowsButton').on('click', function () {
+        deselectAllRows();
     })
 
+    //cerrar modal de delete tocando fuera del cartel
     $('#deleteModal').on('click', function (e) {
         if(e.target === this){
             $('#deleteModal').addClass('hidden');
@@ -172,8 +173,8 @@ const initMiplantelTable = async () => {
     })
 
 
-    // Botón X para deseleccionar todo
-    $('#deselectAllUsersButton').on('click', function () {
+    // Botón basurin para eliminar todo
+    $('#deleteSelectedRowsButton').on('click', function () {
 
         //Mostrar modal
         $('#deleteModal').removeClass('hidden');
@@ -186,16 +187,16 @@ const initMiplantelTable = async () => {
         
         //si confirma
         $('#confirmDelete').off('click').on('click', function () {
-            console.log("Eliminando usuarios con IDs:", selectedUsersRowsArray);
+            console.log("Eliminando usuarios con IDs:", selectedRowsArray);
     
             // Eliminar la fila de la tabla
-            selectedUsersRowsArray.forEach((userId) => {
-                const row = $(`#miplantel-table tbody tr[user_id="${userId}"]`); 
+            selectedRowsArray.forEach((id) => {
+                const row = $(`${idTable} tbody tr[${itemId}="${id}"]`); 
                 const rowIndex = dataTable.row(row).index(); 
                 dataTable.row(rowIndex).remove().draw(); 
 
                 // Actualizar la lista de usuarios en el arreglo
-                users = users.filter((user) => user.id != userId);
+                dataPlayers = dataPlayers.filter((item) => item.id != id);
             })
     
 
@@ -204,17 +205,17 @@ const initMiplantelTable = async () => {
             $('#deleteModal').addClass('hidden');
             
             //elimino estilos de checkbox
-            $('#selectAllUsersButton').removeClass('bg-green');
+            $('#selectAllRowsButton').removeClass('bg-green');
 
             mostrarSuccessMessage();
-            $('#msg-success-pr').text(`${selectedUsersRowsCount} usuarios eliminados correctamente`);
+            $('#msg-success-pr').text(`${selectedRowsCount} usuarios eliminados correctamente`);
             let successMessageTimer = setTimeout(() => ocultarSuccessMessage(), 2500);
 
             $('#close-success-message').on('click', function () {
                 $('#msg-success-pr').addClass('hidden');
                 clearTimeout(successMessageTimer);
             })
-            deselectAllUsersRows();
+            deselectAllRows();
             ocultarDeleteAll();
             updateSelectedUsersMessage();
 
@@ -225,34 +226,32 @@ const initMiplantelTable = async () => {
     });
 
     // Botón seleccionar todas las filas
-    $('#selectAllUsersButton').on('click', function () {
+    $('#selectAllRowsButton').on('click', function () {
         // Seleccionar todas las filas
-        const rows = $('#miplantel-table tbody tr');
-        console.log("Funciona");
+        const rows = $(`${idTable} tbody tr`);
         
         if (!$(this).children().hasClass('hidden')) { //Si ya fue clikeado
 
             // Eliminar todas las selecciones de esa página
-            deselectAllUsersRows()
+            deselectAllRows()
             ocultarDeleteAll();
             updateSelectedUsersMessage();
 
         } else {
 
-            const selectedUsersRows = rows.filter(':not(.selected-row)');
+            const selectedRows = rows.filter(':not(.selected-row)');
 
             //estilo de check
             $(this).children().toggleClass('hidden');
             $(this).addClass('bg-green');
 
-            selectedUsersRows.each(function () {
-
-                const userId = $(this).attr('user_id');
-                selectedUsersRowsArray.push(userId);
-                selectedUsersRowsCount += 1;
+            selectedRows.each(function () {
+                const id = $(this).attr(itemId);
+                selectedRowsArray.push(id);
+                selectedRowsCount += 1;
             });
 
-            selectedUsersRows.toggleClass('selected-row'); // Seleccionar filas filtradas
+            selectedRows.toggleClass('selected-row'); // Seleccionar filas filtradas
             
             //actualizo msj de seleccionados
             updateSelectedUsersMessage();
@@ -264,43 +263,54 @@ const initMiplantelTable = async () => {
     });
 
     // Seleccionar fila button
-    $('#miplantel-table tbody').on('click', 'button.select-button', function () {
+    $(`${idTable} tbody`).on('click', 'button.select-row-button', function () {
+        
+        //recupero la fila de la tabla
         const row = $(this).closest('tr');
-        row.toggleClass('selected-row');
-        if (row.hasClass('selected-row')) {
-            selectedUsersRowsCount += 1
-            selectedUsersRowsArray.push(row[0].attributes['user_id'].value)
 
-            if ($('#deselectAllUsersButton').hasClass('hidden')) {
+        //quito o agrego la clase selected row
+        row.toggleClass('selected-row');
+        
+        //si se selecciono la fila
+        if (row.hasClass('selected-row')) {
+            selectedRowsCount += 1
+            selectedRowsArray.push(row[0].attributes[`${itemId}`].value)
+
+            if ($('#deleteSelectedRowsButton').hasClass('hidden')) {
                 mostrarDeleteAll();
             }
 
+        //si se deselecciono la fila
         } else {
-            selectedUsersRowsCount -= 1
-            selectedUsersRowsArray = selectedUsersRowsArray.filter(row_id => row_id !== row[0].attributes['user_id'].value)
+            selectedRowsCount -= 1
+            selectedRowsArray = selectedRowsArray.filter(id => id !== row[0].attributes[`${itemId}`].value)
         }
+
+        //actualizo msj de seleccionados
         updateSelectedUsersMessage();
 
-        if (selectedUsersRowsCount === 0) {
+        //caso de querdar sin selecciones
+        if (selectedRowsCount === 0) {
             ocultarDeleteAll();
         }
 
     });
 
+
     //Deseleccionar boton Seleccionar Todos si cambia de página
-    $('#miplantel-table').on('page.dt', function () {
-        deselectAllUsersRows()
+    $(`${idTable}`).on('page.dt', function () {
+        deselectAllRows()
     });
 
     // CONFIMRACION O CANCELACION DE ELIMINACION
-    $(document).on('click', '.iconDeleteUser' , function (e) {
+    $(document).on('click', '.iconDeleteRow' , function (e) {
         e.preventDefault();
     
         // Mostrar el modal de eliminación
         $('#deleteModal').removeClass('hidden');
     
-        // Recuperar el userId directamente del data attribute
-        const user = $(this).data('user');
+        // Recuperar el item directamente del data attribute
+        const itemRow = $(this).data(`${itemName}`);
     
         
         $('#cancelDelete').off('click').on('click', function () {
@@ -309,26 +319,26 @@ const initMiplantelTable = async () => {
     
         
         $('#confirmDelete').off('click').on('click', function () {
-            console.log("Eliminando usuario con ID:", user.id);
+            console.log("Eliminando item con ID:", itemRow.id);
     
             // Eliminar la fila de la tabla
-            const row = $(`#miplantel-table tbody tr[user_id="${user.id}"]`); 
+            const row = $(`${idTable} tbody tr[${itemId}="${itemRow.id}"]`); 
             const rowIndex = dataTable.row(row).index(); 
             dataTable.row(rowIndex).remove().draw(); 
     
             // Actualizar la lista de usuarios en el arreglo
-            users = users.filter((item) => item.id != user.id);
+            dataPlayers = dataPlayers.filter((item) => item.id != itemRow.id);
    
             // Ocultar el modal de eliminación
             $('#deleteModal').addClass('hidden');
 
             
             
-            if(selectedUsersRowsArray.includes(String(user.id))){
+            if(selectedRowsArray.includes(String(itemRow.id))){
 
-                selectedUsersRowsCount -= 1
-                selectedUsersRowsArray = selectedUsersRowsArray.filter(item => item !== user.id)
-                if (selectedUsersRowsCount === 0) {
+                selectedRowsCount -= 1
+                selectedRowsArray = selectedRowsArray.filter(item => item !== itemRow.id)
+                if (selectedRowsCount === 0) {
                     ocultarDeleteAll();
                 }
                 updateSelectedUsersMessage();
@@ -337,7 +347,7 @@ const initMiplantelTable = async () => {
 
             //Mostrar modal de confirmacion
             mostrarSuccessMessage();
-            $('#msg-success-pr').text(`El usuario "${user.nombre}" ha sido eliminado correctamente`);
+            $('#msg-success-pr').text(`El jugador "${itemRow.name}" ha sido eliminado correctamente`);
             let successMessageTimer = setTimeout(() => ocultarSuccessMessage(), 2500);
 
             $('#close-success-message').on('click', function () {
@@ -346,14 +356,6 @@ const initMiplantelTable = async () => {
             })
         });
     });
-
-    //Mostrar información de usuario
-    $(document).on('click', '.iconShowInfoUser' , function () {
-        $('#userInfoModal').removeClass('hidden');
-        const user = $(this).data('user');
-        $('#userInfoModal').html(generateUserInfoModal(user));
-   
-    })
 
     $(document).on('click', '.closeInfoUserModal' , function () {
 
@@ -365,13 +367,13 @@ const initMiplantelTable = async () => {
 //Mostrar msj de seleccion de usuarios
 function updateSelectedUsersMessage() {
     const selectedUsersMessage = $('#selectedMessage');
-    if (selectedUsersRowsCount > 0) {
+    if (selectedRowsCount > 0) {
         selectedUsersMessage.removeClass('hidden');
-        $('#selectedCount').text(selectedUsersRowsCount);
-        if (selectedUsersRowsCount === 1) {
-            selectedUsersMessage.find('p').text(selectedUsersRowsCount + ' Seleccionado');
+        $('#selectedCount').text(selectedRowsCount);
+        if (selectedRowsCount === 1) {
+            selectedUsersMessage.find('p').text(selectedRowsCount + ' Seleccionado');
         } else {
-            selectedUsersMessage.find('p').text(selectedUsersRowsCount + ' Seleccionados');
+            selectedUsersMessage.find('p').text(selectedRowsCount + ' Seleccionados');
         }
     } else {
         selectedUsersMessage.addClass('hidden');
@@ -380,28 +382,28 @@ function updateSelectedUsersMessage() {
 
 // Deseleccionar todas las filas
 
-function deselectAllUsersRows() {
-    const rows = $('#miplantel-table tbody tr');  // Seleccionar solo las filas <tr> con la clase 'selected-row'
+function deselectAllRows() {
+    const rows = $(`${idTable} tbody tr`);  // Seleccionar solo las filas <tr> con la clase 'selected-row'
 
     rows.removeClass('selected-row');
-    selectedUsersRowsCount = 0;
-    selectedUsersRowsArray = []
+    selectedRowsCount = 0;
+    selectedRowsArray = []
 
     //oculto imagen de check
-    $('#selectAllUsersButton').children().addClass('hidden');
-    $('#selectAllUsersButton').removeClass('bg-green');
+    $('#selectAllRowsButton').children().addClass('hidden');
+    $('#selectAllRowsButton').removeClass('bg-green');
     
     updateSelectedUsersMessage();
     ocultarDeleteAll();
 }
 //Mostrar cruz para deseleccionar todo
 const mostrarDeleteAll = () => {
-    $('#deselectAllUsersButton').removeClass('hidden');
+    $('#deleteSelectedRowsButton').removeClass('hidden');
 }
 
 //Ocultar cruz para deseleccionar todo
 const ocultarDeleteAll = () => {
-    $('#deselectAllUsersButton').addClass('hidden');
+    $('#deleteSelectedRowsButton').addClass('hidden');
 }
 
 const mostrarSuccessMessage = () => {
@@ -413,16 +415,8 @@ const ocultarSuccessMessage = () => {
     $('#msg-success-pr').addClass('hidden');
 }
 
-const calcularEdad = (fechaNacimiento) => {
-    const hoy = new Date();
-    const cumpleanos = new Date(fechaNacimiento);
-    let edad = hoy.getFullYear() - cumpleanos.getFullYear();
-    const m = hoy.getMonth() - cumpleanos.getMonth();
-    if (m < 0 || (m === 0 && hoy.getDate() < cumpleanos.getDate())) {
-        edad--;
-    }
-    return edad;    
-}
+
+
 
 
 

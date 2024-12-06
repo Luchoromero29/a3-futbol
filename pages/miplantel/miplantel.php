@@ -14,10 +14,20 @@
     <!-- Estilos de la tabla -->
     <link rel="stylesheet" href="../../tableStyles.css" />
 
+    <link rel="stylesheet" href="playerInfo.css" />
+
     <script src="../../script.js"></script>
+
 
     <!-- Scripts de la tabla -->
     <script type="module" src="miplantelTable.js"></script>
+
+    <!-- Scripts de la info usuario -->
+    <script type="module" src="miplantelInfoPlayer.js"></script>
+
+    <!-- Libreria de notas de observaciones -->
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-lite.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-lite.min.js"></script>
 
     <script src="../../shareModal.js"></script>
     <script src="../../presentationsTable.js"></script>
@@ -36,13 +46,15 @@
                 <div class="hidden absolute z-50 flex flex-col w-full bg-white border border-grayBg rounded-md text-sm">
                     <button id="change-photo-btn"
                         class="py-2 gap-1 hover:text-green hover:bg-lightGrayBg flex items-center pl-[15%] rounded-t-md">
-                        <img class="h-5 w-5 inline rounded-full bg-grayBg" src="../../assets/imgs/14 lapiz hover.png" alt="">
+                        <img class="h-5 w-5 inline rounded-full bg-grayBg" src="../../assets/imgs/14 lapiz hover.png"
+                            alt="">
                         Cambiar foto
                     </button>
                     <button id="sign-out-btn"
                         class="py-2 gap-1 hover:text-green hover:bg-lightGrayBg flex items-center pl-[15%] rounded-b-md">
-                        <img class="h-5 w-5 inline" src="../../assets/imgs/off.png" original-src="../../assets/imgs/off.png"
-                            data-hover-src="../../assets/imgs/offHover.png" alt="">
+                        <img class="h-5 w-5 inline" src="../../assets/imgs/off.png"
+                            original-src="../../assets/imgs/off.png" data-hover-src="../../assets/imgs/offHover.png"
+                            alt="">
                         Cerrar sesión
                     </button>
                 </div>

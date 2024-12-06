@@ -1,0 +1,24 @@
+#player-form input:focus,
+textarea:focus {
+    outline: none;
+}
+
+
+
+.note-editor {
+    width: 100% !important;
+    /* Ocupar todo el ancho disponible */
+    box-sizing: border-box;
+    /* Evitar que los bordes afecten el tamaño */
+}
+
+.miplantel-current-flap {
+    color: var(--green);
+}
+
+.icon-active {
+    display: block !important;
+}
+.icon-inactive {
+    display: hidden !important;
+}

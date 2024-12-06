@@ -1,9 +1,9 @@
-<section id="presentations-table-container"
-    class=" w-[93%] xl:w-[90%] relative bg-white mt-8 relative z-10 border border-linesColor">
+<section class=" w-[93%] xl:w-[98%] relative bg-white mt-8 relative z-10 border border-linesColor">
     <!-- Mensaje de seleccionados / Add Presentation btn -->
     <header class="bg-black w-full flex px-[10px] py-1 items-center rounded-sm ">
         <img class="h-8 w-8" src="../../assets/menu_inicio/4.png" />
         <p class="text-white ml-2">Mi plantel</p>
+        <p id="name-plantel" class="text-white ml-2"></p>
     </header>
 
     <div id="add-pr-sel-msgs-container" class="flex w-full justify-end pr-6 pb-1 pt-4">
@@ -22,10 +22,10 @@
             </button>
         </div>
     </div>
-    <div class="flex flex-col justify-end px-8">
+    <div id="add-user-container" class=" flex flex-col justify-end px-4">
         <button class="flex border-none gap-2 justify-center w-fit">
             <!-- Lo mismo que en el editar, linkeo el user.php para poder ver la redireccion, faltaria ajustarle el href y pasar el id como parametro -->
-            <a href="../user/user.php?to=miplantel.php">
+            <a id="add-user-miplantel">
                 <span class="hover:text-green">Agregar usuario</span>
             </a>
             <div class="bg-green rounded-full h-6 w-6 relative">
@@ -34,9 +34,16 @@
         </button>
     </div>
     <!-- tabla -->
-    <div class="w-full overflow-x-auto p-8">
-        <?php include 'miplantel_table.php';?>
+
+    <div id="miplantel-table-container" class=" w-full overflow-x-auto p-4">
+        <?php include 'miplantel_table.php'; ?>
     </div>
+
+    <div id="miplantel-infouser-container" class="hidden w-full p-4">
+        <?php include 'miplantel_infoPlayer.php'; ?>
+    </div>
+
+
     <div id="deleteModal" class="fade-in hidden fixed inset-0 flex justify-center items-center z-100 bg-black/50">
         <div class="border border-linesColor rounded-md shadow-xl overflow-hidden bg-white">
             <header class="p-4 text-center bg-green text-white flex gap-1 justify-center items-center rounded-t-md ">
@@ -70,5 +77,35 @@
 </section>
 
 <script>
+    // let currentFlap = document.querySelector('.miplantel-current-flap');
 
+    // const toggleFlap = (event) => {
+
+    //     //saco estilos actuales de seleccionado
+    //     currentFlap.classList.remove('miplantel-current-flap');
+    //     quitStylesFlap(currentFlap.children);
+
+
+    //     //agrego estilos al seleccionado
+    //     const li = event.target.closest('li');
+    //     li.classList.add('miplantel-current-flap');
+    //     currentFlap = li;
+    //     addStylesFlap(currentFlap.children);
+    // }
+
+    // const addStylesFlap = (node) => {
+    //     const [img, imgHover] = node;
+    //     img.classList.add('hidden');
+    //     imgHover.classList.remove('hidden');
+    // }
+    // const quitStylesFlap = (node) => {
+    //     const [img, imgHover] = node;
+    //     img.classList.remove('hidden');
+    //     imgHover.classList.add('hidden');
+    // }
+
+
+    // document.addEventListener("DOMContentLoaded", () => {
+    //     addStylesFlap(currentFlap.children);
+    // });
 </script>

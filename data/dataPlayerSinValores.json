@@ -1,0 +1,196 @@
+[
+    {
+        "name": "Datos Generales",
+        "icon": "../../assets/imgs/notebook-black.png",
+        "iconHover": "../../assets/imgs/notebook-green.png",
+        "campos": [
+            {
+                "id": 1,
+                "label": "Nombre",
+                "type": 1,
+                "value": ""
+            },
+            {
+                "id": 2,
+                "label": "Posición",
+                "type": 1,
+                "value": ""
+            },
+            {
+                "id": 3,
+                "label": "Arquero",
+                "type": 4,
+                "value": false
+            },
+            {
+                "id": 4,
+                "label": "Capitán",
+                "type": 4,
+                "value": false
+            },
+            {
+                "id": 5,
+                "label": "Suplente",
+                "type": 4,
+                "value": false
+            },
+            {
+                "id": 6,
+                "label": "N° Camiseta",
+                "type": 2,
+                "value": null
+            },
+            {
+                "id": 7,
+                "label": "Nacionalidad",
+                "type": 1,
+                "value": ""
+            },
+            {
+                "id": 8,
+                "label": "Nacimiento",
+                "type": 1,
+                "value": ""
+            },
+            {
+                "id": 9,
+                "label": "Edad",
+                "type": 2,
+                "value": null
+            },
+            {
+                "id": 10,
+                "label": "Peso",
+                "type": 3,
+                "value": null
+            },
+            {
+                "id": 11,
+                "label": "Altura",
+                "type": 3,
+                "value": null
+            },
+            {
+                "id": 12,
+                "label": "Pierna Hábil",
+                "type": 1,
+                "value": ""
+            },
+            {
+                "id": 13,
+                "label": "Trayectoria",
+                "type": 5,
+                "value": ""
+            },
+            {
+                "id": 14,
+                "label": "Observaciones",
+                "type": 6,
+                "value": ""
+            },
+            {
+                "id": 15,
+                "label": "Foto",
+                "type": 1,
+                "value": ""
+            }
+        ]
+    },{
+        "name": "Datos fisicos",
+        "icon": "../../assets/imgs/dumbbell-black.png",
+        "iconHover": "../../assets/imgs/dumbbell-green.png",
+        "campos": [
+            {
+                "id": 1,
+                "label": "Nombre",
+                "type": 1,
+                "value": ""
+            },
+            {
+                "id": 2,
+                "label": "Posición",
+                "type": 1,
+                "value": ""
+            },
+            {
+                "id": 3,
+                "label": "Arquero",
+                "type": 4,
+                "value": false
+            },
+            {
+                "id": 4,
+                "label": "Capitán",
+                "type": 4,
+                "value": false
+            },
+            {
+                "id": 5,
+                "label": "Suplente",
+                "type": 4,
+                "value": false
+            },
+            {
+                "id": 6,
+                "label": "N° Camiseta",
+                "type": 2,
+                "value": null
+            },
+            {
+                "id": 7,
+                "label": "Nacionalidad",
+                "type": 1,
+                "value": ""
+            },
+            {
+                "id": 8,
+                "label": "Nacimiento",
+                "type": 1,
+                "value": ""
+            },
+            {
+                "id": 9,
+                "label": "Edad",
+                "type": 2,
+                "value": null
+            },
+            {
+                "id": 10,
+                "label": "Peso",
+                "type": 3,
+                "value": null
+            },
+            {
+                "id": 11,
+                "label": "Altura",
+                "type": 3,
+                "value": null
+            },
+            {
+                "id": 12,
+                "label": "Pierna Hábil",
+                "type": 1,
+                "value": ""
+            },
+            {
+                "id": 13,
+                "label": "Trayectoria",
+                "type": 5,
+                "value": ""
+            },
+            {
+                "id": 14,
+                "label": "Observaciones",
+                "type": 6,
+                "value": ""
+            },
+            {
+                "id": 15,
+                "label": "Foto",
+                "type": 1,
+                "value": ""
+            }
+        ]
+    }
+
+]
