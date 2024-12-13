@@ -1,6 +1,6 @@
 [
     {
-        "name": "Datos Generales",
+        "name": "Datos generales",
         "icon": "../../assets/imgs/notebook-black.png",
         "iconHover": "../../assets/imgs/notebook-green.png",
         "campos": [
@@ -95,5 +95,13 @@
                 "value": "../../assets/avatar_test/avatar01.jpg"
             }
         ]
+    },{
+        "name": "Datos físicos",
+        "icon": "../../assets/imgs/dumbbell-black.png",
+        "iconHover": "../../assets/imgs/dumbbell-green.png"
+    },{
+        "name": "Datos médicos",
+        "icon": "../../assets/imgs/brain-black.png",
+        "iconHover": "../../assets/imgs/brain-green.png"
     }
 ]

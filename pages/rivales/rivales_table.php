@@ -5,10 +5,10 @@
             <th  scope="col" >
                 <div class="flex justify-between items-center">
                     <button id="selectAllEquiposButton"
-                        class="w-6 h-6 border-2 border-grayBg rounded-md hover:border-green ">
+                        class="w-6 h-6 border-2 border-gray-bg rounded-md hover:border-green ">
                         <img id="checkboxIcon" class="hidden" src="../../assets/imgs/3.png" alt="Seleccionado boton">
                     </button>
-                    <button id="deselectAllEquiposButton" class=" hidden bg-grayBg/0">
+                    <button id="deselectAllEquiposButton" class=" hidden bg-gray-bg/0">
                         <span class="">
                             <img onmouseover="this.src='../../assets/imgs/9 eliminar.png'"
                                 onmouseout="this.src='../../assets/imgs/10 eliminar hover.png'" class="w-7 h-7 hover:"

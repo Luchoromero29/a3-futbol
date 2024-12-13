@@ -30,7 +30,7 @@ const dataTableConfig = {
         },
         {
             targets: [3, 4, 5], // Columnas de texto gris
-            className: 'text-grayBg'
+            className: 'text-gray-bg'
         },
     ],
     order: [[1, 'asc']], // Orden por columna ID
@@ -114,19 +114,19 @@ const initUsersTable = async () => {
                 `<div class="flex gap-2 items-center justify-end">
                     <button class="iconShowInfoUser row-action-button w-7 h-7" data-user='${JSON.stringify(item)}'>
                         <img 
-                            class="w-7 bg-black rounded-md border-2 border-grayBg hover:bg-green" 
+                            class="w-7 bg-black rounded-md border-2 border-gray-bg hover:bg-green" 
                             src="../../assets/imgs/1 Hover de lo que era la lupa original.png"
                         />
                     </button>
                     <a href="user.php?id=${item.id}&to=user_list.php" class="row-action-button w-7 h-7">
                         <img 
-                            class="w-7 bg-green rounded-md border-2 border-grayBg hover:bg-black" 
+                            class="w-7 bg-green rounded-md border-2 border-gray-bg hover:bg-black" 
                             src="../../assets/imgs/14 lapiz hover.png"
                         />
                     </a> 
                     <a href="/users/${item.id}/delete/" data-user='${JSON.stringify(item)}' data-toggle="confirmation" class="row-action-button w-7 h-7 iconDeleteUser">
                         <img 
-                            class="w-7 bg-green rounded-md border-2 border-grayBg hover:bg-black" 
+                            class="w-7 bg-green rounded-md border-2 border-gray-bg hover:bg-black" 
                             src="../../assets/imgs/10 eliminar hover.png"
                         />
                     </a>

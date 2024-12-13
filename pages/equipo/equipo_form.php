@@ -5,39 +5,40 @@
                 <input required type="text" id="input-text-club" name="nombre"
                     class="rounded-md border-2 border-green p-1 hover:border-black text-center w-fit"
                     style="text-transform: uppercase;">
-                <span class="text-grayBg">Nombre del club
+                <span class="text-gray-bg">Nombre del club
                     <span class="text-green">*</span>
                 </span>
             </label>
         </div>
         <div class="flex flex-col gap-16 items-center">
             <label class="flex flex-col items-center gap-2 hover:cursor-pointer w-fit hover-trigger">
-                <img name="escudo" src="../../assets/mi_club/5.png" id="preview-img-escudo" alt="Escudo" class="w-32 hover-dark" />
+                <img name="escudo" src="../../assets/mi_club/5.png" id="preview-img-escudo" alt="Escudo"
+                    class="w-32 hover-dark" />
                 <input name="escudo" type="file" id="input-file-escudo" class="hidden" accept=".png, .jpg, .jpeg">
-                <span class="text-grayBg ">Escudo</span>
-                <img  src="../../assets/mi_club/4.png" class="w-6 hover-img"  />
+                <span class="text-gray-bg ">Escudo</span>
+                <img src="../../assets/mi_club/4.png" class="w-6 hover-img" />
             </label>
             <div class="flex md:justify-between flex-col md:flex-row gap-16 ">
                 <label class="flex flex-col items-center hover:cursor-pointer hover-trigger">
-                            <img name="arquero" src="../../assets/mi_club/6.png" id="preview-img-arquero" alt="Camiseta Arquero"
-                    class="w-[150px] h-[150px] object-contain hover-dark" />
-                <input name="arquero" type="file" id="input-file-arquero" class="hidden" accept=".png, .jpg, .jpeg">
-                <span class="text-grayBg mt-[10px]">Arquero</span>
-                <img  src="../../assets/mi_club/4.png" class="w-6 mt-2 hover-img"  />
+                    <img name="arquero" src="../../assets/mi_club/6.png" id="preview-img-arquero" alt="Camiseta Arquero"
+                        class="w-[150px] h-[150px] object-contain hover-dark" />
+                    <input name="arquero" type="file" id="input-file-arquero" class="hidden" accept=".png, .jpg, .jpeg">
+                    <span class="text-gray-bg mt-[10px]">Arquero</span>
+                    <img src="../../assets/mi_club/4.png" class="w-6 mt-2 hover-img" />
                 </label>
                 <label class="flex flex-col items-center hover:cursor-pointer hover-trigger">
-                            <img name="jugador" src="../../assets/mi_club/7.png" id="preview-img-jugador" alt="Camiseta Jugador"
-                    class="w-[150px] h-[150px] object-contain hover-dark" />
-                <input name="jugador" type="file" id="input-file-jugador" class="hidden" accept=".png, .jpg, .jpeg">
-                <span class="text-grayBg mt-[10px]">Jugador</span>
-                <img src="../../assets/mi_club/4.png" class="w-6 mt-2 hover-img" />
+                    <img name="jugador" src="../../assets/mi_club/7.png" id="preview-img-jugador" alt="Camiseta Jugador"
+                        class="w-[150px] h-[150px] object-contain hover-dark" />
+                    <input name="jugador" type="file" id="input-file-jugador" class="hidden" accept=".png, .jpg, .jpeg">
+                    <span class="text-gray-bg mt-[10px]">Jugador</span>
+                    <img src="../../assets/mi_club/4.png" class="w-6 mt-2 hover-img" />
                 </label>
                 <label class="flex flex-col items-center hover:cursor-pointer hover-trigger">
-                    <img name="suplente" src="../../assets/mi_club/8.png" id="preview-img-suplente" 
-                    alt="Camiseta Suplente" class="w-[150px] h-[150px] object-contain hover-dark" />
+                    <img name="suplente" src="../../assets/mi_club/8.png" id="preview-img-suplente"
+                        alt="Camiseta Suplente" class="w-[150px] h-[150px] object-contain hover-dark" />
                     <input name="suplente" type="file" id="input-file-suplente" class="hidden"
                         accept=".png, .jpg, .jpeg">
-                    <span class="text-grayBg mt-[10px]">Suplente</span>
+                    <span class="text-gray-bg mt-[10px]">Suplente</span>
                     <img src="../../assets/mi_club/4.png" class="w-6 mt-2 hover-img" />
                 </label>
             </div>
@@ -45,15 +46,15 @@
 
     </div>
     <div class="flex gap-4 pb-8 md:pb-0 flex justify-between items-center mb-[10px]">
-        <button class="h-11 w-24 bg-grayBg hover:bg-darkGrayBg text-white p-2 rounded-lg" id="button-cancel"
+        <button class="h-11 w-24 bg-gray-bg hover:bg-dark-gray-bg text-white p-2 rounded-lg" id="button-cancel"
             type="button">Cancelar</button>
-        <button class="h-11 w-24 bg-green text-white p-2 rounded-lg hover:bg-darkGreen" id="button-submit"
+        <button class="h-11 w-24 bg-green text-white p-2 rounded-lg hover:bg-dark-green" id="button-submit"
             type="submit">Guardar</button>
     </div>
 </form>
 
 <script type="module">
-    
+
     const params = new URLSearchParams(window.location.search);
     const equipoId = params.get('id');
 
@@ -65,6 +66,13 @@
         return equipo;
     }
 
+    const getEquipoPlantel = async () => {
+        const equipo = await fetch('../../data/equipo.json')
+            .then(response => response.json())
+            .then(data => data);
+        return equipo;
+    }
+
 
     const $form = document.getElementById("equipo-form");
     const $labelAlert = document.querySelector("#label-alert");
@@ -73,7 +81,7 @@
     const $buttonCancel = document.querySelector("#button-cancel");
 
 
-    document.addEventListener("DOMContentLoaded", () => {
+    document.addEventListener("DOMContentLoaded", async () => {
         updatePreview('input-file-escudo', 'preview-img-escudo');
         updatePreview('input-file-arquero', 'preview-img-arquero');
         updatePreview('input-file-jugador', 'preview-img-jugador');
@@ -86,10 +94,15 @@
         });
 
         //si existe club (se va a editar)
+        let equipo
+
         if (equipoId) {
             $buttonSubmit.textContent = "Actualizar";
-            cargarDatosForm();
+            equipo = await getEquipo();
+        } else {
+            equipo = await getEquipoPlantel();
         }
+        cargarDatosForm(equipo);
 
         $buttonCancel.addEventListener("click", () => {
             redireccion();
@@ -114,9 +127,7 @@
         });
     }
 
-    const cargarDatosForm = async () => {
-
-        const equipo = await getEquipo();
+    const cargarDatosForm = async (equipo) => {
 
         const formData = new FormData($form);
 
@@ -132,7 +143,7 @@
             // Verificar si el campo es de texto o de imagen
             if (input) {
                 if (input.type === "text") {
-                    
+
                     input.value = equipo[key];
                 } else if (input.type === "file" || input.tagName === "IMG") {
                     const img = $form.querySelector(`img[name="${key}"]`);
@@ -196,7 +207,7 @@
         }
 
         console.log(newEquipo);
-        
+
 
         //redireccion();
     }

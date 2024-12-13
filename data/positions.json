@@ -1,0 +1,27 @@
+[
+    {
+      "name": "Delanteros",
+      "players": [1, 2, 7, 9],
+      "id": 1
+    },
+    {
+      "name": "Defensores",
+      "players": [3, 6, 8],
+      "id": 2
+    },
+    {
+      "name": "Mediocampistas",
+      "players": [5, 10],
+      "id": 3
+    },
+    {
+      "name": "Arqueros",
+      "players": [4],
+      "id": 4
+    },
+    {
+      "name": "Sin asignar",
+      "players": [],
+      "id": 5
+    }
+  ]

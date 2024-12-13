@@ -3,7 +3,7 @@
     <div class="w-full flex justify-center bg-green items-center h-[70px] bg-gradient-to-t from-black/50 to-50%">
         <img class="w-2/5 text-center" src="../../assets/imgs/-- Marca.png" alt="">
     </div>
-    <nav class="w-full text-grayBg">
+    <nav class="w-full text-gray-bg">
         <ul class="flex flex-col items-start gap-6 font-bold">
             <li id="inicio" class="left-nav-item hover:text-white cursor-pointer">
                 <div tabindex="0" class="flex w-full px-8 gap-4 justify-start items-center focus:text-white">

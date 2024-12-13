@@ -1,20 +1,13 @@
 import { calcularFecha } from "../../utilities/functionsUtils.js";
-import { dataPlayers2 } from './miplantel.js';
+import { getData, addPlayer, removePlayer, removeMorePlayers, dataPlayers } from './miplantel.js';
 
 
 //Variables necesarias
-export let dataPlantel;
-export let dataPlayers;
-export let dataPositions;
-export let dataTeam;
 
 //id de la tabla
 const idTable = "#miplantel-table"
 const itemId = "player_id" 
 const itemName = "player"
-
-console.log("Desde el js, imprimo los datos del php", dataPlayers2);
-
 
 let selectedRowsCount = 0;
 let selectedRowsArray = []
@@ -36,7 +29,7 @@ const dataTableConfig = {
         },
         {
             targets: [3,4,5],
-            className: 'text-grayBg'
+            className: 'text-gray-bg'
         }
     ],
     order: [[2, 'asc']], // Ordenar por la columna de índice 2
@@ -69,23 +62,6 @@ const dataTableConfig = {
     }
 };
 
-
-
-//Peticion a la API
-
-const getDataPlantel = async () => {
-    return await fetch('../../data/plantel.json')
-    .then(response => response.json())
-    .then(data => data);
-}
-
-const getData = async () => {
-    dataPlantel = await getDataPlantel();  
-    dataPlayers = dataPlantel.players
-    dataPositions = dataPlantel.positions;
-    dataTeam = dataPlantel.team;
-}
-//Inizializacion de la tabla de usuarios
 const initMiplantelTable = async () => {;
 
     const dataTable = $('#miplantel-table').DataTable(dataTableConfig);
@@ -95,7 +71,7 @@ const initMiplantelTable = async () => {;
             const row = dataTable.row.add([
                 // Botón seleccionar
                 `<div class="flex gap-2 items-center">
-                    <button class="select-row-button w-5 h-5 border-2 border-gray-300 rounded-md hover:border-green focus:outline-none transition-all relative" onclick="toggleCheckbox(this)">
+                    <button class="select-row-button w-5 h-5 border-2 border-gray-300 rounded-md hover:border-green focus:outline-none transition-all relative" >
                         <img id="select-row-button-icon" src="../../assets/imgs/3.png" alt="" class="hidden w-full h-full" />   
                     </button>
                 </div>`,
@@ -116,21 +92,21 @@ const initMiplantelTable = async () => {;
                 calcularFecha(item.createdAt),
                 calcularFecha(item.updatedAt),
                 `<div class="flex gap-2 items-center justify-end">
-                    <button onclick="showInfoPlayer(this)" id="button-show-player" class="iconShowInfoUser row-action-button w-8 h-8" data-${itemId}='${JSON.stringify(item.id)}'>
+                    <button  id="button-show-player" class="iconShowInfoUser row-action-button w-8 h-8" data-${itemId}='${JSON.stringify(item.id)}'>
                         <img 
-                            class="w-8 bg-black rounded-md border-2 border-grayBg hover:bg-green" 
+                            class="w-8 bg-black rounded-md border-2 border-gray-bg hover:bg-green" 
                             src="../../assets/imgs/1 Hover de lo que era la lupa original.png"
                         />
                     </button>
                     <a  id="" class="row-action-button w-8 h-8">
                         <img 
-                            class="w-10 bg-black rounded-md border-2 border-grayBg hover:bg-green" 
+                            class="w-10 bg-black rounded-md border-2 border-gray-bg hover:bg-green" 
                             src="../../assets/imgs/arrow-tr-white.png"
                         />
                     </a> 
                     <a href="/users/${item.id}/delete/" data-${itemName}='${JSON.stringify(item)}' data-toggle="confirmation" class="row-action-button flex justify-center items-center w-8 h-8 iconDeleteRow">
                         <img 
-                            class="w-8 bg-black rounded-md border-2 border-grayBg hover:bg-green " 
+                            class="w-8 bg-black rounded-md border-2 border-gray-bg hover:bg-green " 
                             src="../../assets/imgs/18 eliminar hover.png"
                         />
                     </a>
@@ -178,7 +154,6 @@ const initMiplantelTable = async () => {;
 
         //Mostrar modal
         $('#deleteModal').removeClass('hidden');
-    
        
         //si cancela
         $('#cancelDelete').off('click').on('click', function () {
@@ -194,11 +169,11 @@ const initMiplantelTable = async () => {;
                 const row = $(`${idTable} tbody tr[${itemId}="${id}"]`); 
                 const rowIndex = dataTable.row(row).index(); 
                 dataTable.row(rowIndex).remove().draw(); 
-
-                // Actualizar la lista de usuarios en el arreglo
-                dataPlayers = dataPlayers.filter((item) => item.id != id);
             })
-    
+            
+            // Actualizar la lista de usuarios en el arreglo
+            removeMorePlayers(selectedRowsArray);
+            console.log(dataPlayers);
 
             
             //Ocultar modal
@@ -247,9 +222,11 @@ const initMiplantelTable = async () => {;
 
             selectedRows.each(function () {
                 const id = $(this).attr(itemId);
-                selectedRowsArray.push(id);
+                selectedRowsArray.push(Number(id));
                 selectedRowsCount += 1;
             });
+            console.log(selectedRowsArray);
+            
 
             selectedRows.toggleClass('selected-row'); // Seleccionar filas filtradas
             
@@ -274,7 +251,7 @@ const initMiplantelTable = async () => {;
         //si se selecciono la fila
         if (row.hasClass('selected-row')) {
             selectedRowsCount += 1
-            selectedRowsArray.push(row[0].attributes[`${itemId}`].value)
+            selectedRowsArray.push(Number(row[0].attributes[`${itemId}`].value))
 
             if ($('#deleteSelectedRowsButton').hasClass('hidden')) {
                 mostrarDeleteAll();
@@ -283,7 +260,7 @@ const initMiplantelTable = async () => {;
         //si se deselecciono la fila
         } else {
             selectedRowsCount -= 1
-            selectedRowsArray = selectedRowsArray.filter(id => id !== row[0].attributes[`${itemId}`].value)
+            selectedRowsArray = selectedRowsArray.filter(id => id !== Number(row[0].attributes[`${itemId}`].value))
         }
 
         //actualizo msj de seleccionados
@@ -302,7 +279,7 @@ const initMiplantelTable = async () => {;
         deselectAllRows()
     });
 
-    // CONFIMRACION O CANCELACION DE ELIMINACION
+    //Eliminar fila individual desde el icon eliminar 
     $(document).on('click', '.iconDeleteRow' , function (e) {
         e.preventDefault();
     
@@ -326,15 +303,13 @@ const initMiplantelTable = async () => {;
             const rowIndex = dataTable.row(row).index(); 
             dataTable.row(rowIndex).remove().draw(); 
     
-            // Actualizar la lista de usuarios en el arreglo
-            dataPlayers = dataPlayers.filter((item) => item.id != itemRow.id);
+            // Actualizar la lista de jugadores en el arreglo
+            removePlayer(itemRow.id);
    
             // Ocultar el modal de eliminación
             $('#deleteModal').addClass('hidden');
-
             
-            
-            if(selectedRowsArray.includes(String(itemRow.id))){
+            if(selectedRowsArray.includes(itemRow.id)){
 
                 selectedRowsCount -= 1
                 selectedRowsArray = selectedRowsArray.filter(item => item !== itemRow.id)
@@ -346,10 +321,8 @@ const initMiplantelTable = async () => {;
 
 
             //Mostrar modal de confirmacion
-            mostrarSuccessMessage();
-            $('#msg-success-pr').text(`El jugador "${itemRow.name}" ha sido eliminado correctamente`);
-            let successMessageTimer = setTimeout(() => ocultarSuccessMessage(), 2500);
-
+            mostrarSuccessMessage(`El jugador "${itemRow.name}" ha sido eliminado correctamente`);
+            
             $('#close-success-message').on('click', function () {
                 $('#msg-success-pr').addClass('hidden');
                 clearTimeout(successMessageTimer);
@@ -406,8 +379,10 @@ const ocultarDeleteAll = () => {
     $('#deleteSelectedRowsButton').addClass('hidden');
 }
 
-const mostrarSuccessMessage = () => {
+const mostrarSuccessMessage = (label) => {
     $('#msg-success-pr').removeClass('hidden');
+    $('#msg-success-pr').text(`${label}`);
+    setTimeout(() => ocultarSuccessMessage(), 2500);
 }
 
 //Ocultar cruz para deseleccionar todo

@@ -1,5 +1,5 @@
 <section id="presentations-table-container"
-    class=" w-[93%] xl:w-[90%] bg-white mt-8  z-10 border border-linesColor">
+    class=" w-[93%] xl:w-[90%] bg-white mt-8  z-10 border border-lines-color">
     <!-- Mensaje de seleccionados / Add Presentation btn -->
     <header class="bg-black w-full flex px-[10px] py-1 items-center rounded-sm ">
         <img class="h-8 w-8" src="../../assets/usuarios/12 para titulo de pantalla.png" />
@@ -12,9 +12,9 @@
                 <img class="w-6 h-6" src="../../assets/imgs/5.png" original-src="../../assets/imgs/5.png"
                     data-hover-src="../../assets/imgs/cerrarHover.png" alt="Deseleccionar boton">
             </button>
-            <p class="text-grayBg"><span id="selectedCount">0</span> Seleccionados</p>
+            <p class="text-gray-bg"><span id="selectedCount">0</span> Seleccionados</p>
         </div>
-        <div id="msg-success-pr" class="hidden w-full  bg-lightGreen flex justify-between 
+        <div id="msg-success-pr" class="hidden w-full  bg-light-green flex justify-between 
                             ml-7 mr-1 pl-4 pr-2 py-3 rounded-md">
             <p id="msg-success-pr-text" class="text-sm"></p>
             <button id="close-success-message">
@@ -42,10 +42,10 @@
                     <th id="columna-seleccion-1" scope="col" class="">
                         <div class="flex justify-between items-center">
                             <button id="selectAllUsersButton"
-                                class="w-6 h-6 border-2 border-grayBg rounded-md hover:border-green ">
+                                class="w-6 h-6 border-2 border-gray-bg rounded-md hover:border-green ">
                                 <img id="checkboxIcon" class="hidden" src="../../assets/imgs/3.png" alt="Seleccionado boton">
                             </button>
-                            <button id="deselectAllUsersButton" class=" hidden bg-grayBg/0">
+                            <button id="deselectAllUsersButton" class=" hidden bg-gray-bg/0">
                                 <span class="">
                                     <img onmouseover="this.src='assets/imgs/9 eliminar.png'"
                                         onmouseout="this.src='../../assets/imgs/10 eliminar hover.png'" class="w-7 h-7 hover:"
@@ -71,7 +71,7 @@
     </div>
     <div id="deleteModal"
         class="hidden fade-in fixed top-0 left-0 h-screen w-screen flex justify-center items-center z-100 bg-black/50">
-        <div class="border border-linesColor rounded-md shadow-xl overflow-hidden bg-white max-w-md mx-auto">
+        <div class="border border-lines-color rounded-md shadow-xl overflow-hidden bg-white max-w-md mx-auto">
             <header class="p-4 text-center bg-green text-white flex gap-1 justify-center items-center rounded-t-md">
                 <p>¿Deseas eliminar los usuarios seleccionados?</p>
             </header>

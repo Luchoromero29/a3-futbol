@@ -35,7 +35,7 @@ const dataTableConfig = {
         },
         {
             targets: [3, 4, 5], // Columnas nombre
-            className: 'text-grayBg'
+            className: 'text-gray-bg'
         },
     ],
     order: [[1, 'asc']], // Ordenar por columna ID ascendente
@@ -358,13 +358,13 @@ const renderTable = () => {
             `<div class="flex gap-2 items-center justify-end">
                     <a href="rivales_form.php?id=${item.id}&to=rivales.php" class="row-action-button w-7 h-7">
                         <img 
-                            class="w-7 bg-black rounded-md border-2 border-grayBg hover:bg-green" 
+                            class="w-7 bg-black rounded-md border-2 border-gray-bg hover:bg-green" 
                             src="../../assets/imgs/14 lapiz hover.png"
                         />
                     </a> 
                     <a href="/equipos/${item.id}/delete/" data-equipo='${JSON.stringify(item)}' data-toggle="confirmation" class="row-action-button w-7 h-7 iconDelete">
                         <img 
-                            class="w-7 bg-black rounded-md border-2 border-grayBg hover:bg-green" 
+                            class="w-7 bg-black rounded-md border-2 border-gray-bg hover:bg-green" 
                             src="../../assets/imgs/10 eliminar hover.png"
                         />
                     </a>
@@ -586,7 +586,7 @@ const initGrilla = () => {
 
 const renderItemGrilla = (equipo, index) => {
     const div = document.createElement('div');
-    div.className = 'mb-[30px] rivales-item-drag bg-green rounded-md flex flex-col justify-between items-center p-1 gap-2 hover:bg-darkGreen cursor-pointer ';
+    div.className = 'mb-[30px] rivales-item-drag bg-green rounded-md flex flex-col justify-between items-center p-1 gap-2 hover:bg-dark-green cursor-pointer ';
     div.setAttribute('draggable', true);
     div.setAttribute('data-index', index);
     div.setAttribute('data-equipoid', equipo.id);
@@ -598,7 +598,7 @@ const renderItemGrilla = (equipo, index) => {
     // El contenido del ítem
     div.innerHTML = `
         <div class="hidden">X</div>
-        <div class="bg-lightGreen flex items-center justify-center rounded-t-md w-full h-24">
+        <div class="bg-light-green flex items-center justify-center rounded-t-md w-full h-24">
             <img src="${equipo.escudo}" alt="escudo" class="w-full h-full object-contain">
         </div>
         <span class="text-white text-sm text-center">${equipo.nombre}</span>

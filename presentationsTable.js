@@ -117,13 +117,13 @@ async function createPresentationsTable(){
         const row = table.row.add([
             // Botón seleccionar
             `<div class="flex gap-2 items-center">
-                <button class="select-button w-5 h-5 border-2 border-linesColor rounded-md hover:border-green">
+                <button class="select-button w-5 h-5 border-2 border-lines-color rounded-md hover:border-green">
                     <span class="select-button-content rounded-md">
                         <img src="assets/imgs/tick.png" alt="">
                     </span>
                 </button>
                 <button class="fav-button w-5 h-5 hover:border-green relative">
-                    <svg class="text-linesColor stroke-linesColor fill-current w-5 h-5 hover:!text-green hover:!stroke-green" 
+                    <svg class="text-lines-color stroke-lines-color fill-current w-5 h-5 hover:!text-green hover:!stroke-green" 
                         viewBox="0 0 36.09 36.09">
                         <path d="M36.04 13.9a1 1 0 0 0-.85-.68l-11.55-1.17-4.68-10.62c-.16-.36-.52-.6-.92-.6s-.75.24-.91.6l-4.68 10.62L.9 13.22a1 1 0 0 0-.57 1.74L9 22.7 6.53 34.05a1 1 0 0 0 1.48 1.07l10.04-5.84 10.03 5.84a1 1 0 0 0 1.48-1.08L27.1 22.7l8.66-7.74a1 1 0 0 0 .28-1.05zm-10.7 7.7a1 1 0 0 0-.32.95l2.1 9.7-8.57-4.99a1 1 0 0 0-1 0l-8.58 4.99 2.1-9.7a1 1 0 0 0-.32-.95l-7.4-6.62 9.88-1a1 1 0 0 0 .81-.59l4-9.08 4 9.08a1 1 0 0 0 .82.6l9.87 1-7.4 6.6z"
                             />
@@ -143,7 +143,7 @@ async function createPresentationsTable(){
                     class="row-action-button w-7 h-7" 
                     >
                     <img 
-                        class="w-7 h-7 bg-black rounded-md border-2 border-grayBg hover:bg-green" 
+                        class="w-7 h-7 bg-black rounded-md border-2 border-gray-bg hover:bg-green" 
                         src="assets/imgs/12 ver hover.png"
                     />
                 </a> 
@@ -154,13 +154,13 @@ async function createPresentationsTable(){
                     onclick="showSuccessMessage('${item.NombrePresentacion}', 'editar')"
                     >
                     <img 
-                        class="w-7 bg-green rounded-md border-2 border-grayBg hover:bg-black" 
+                        class="w-7 bg-green rounded-md border-2 border-gray-bg hover:bg-black" 
                         src="assets/imgs/14 lapiz hover.png"
                     />
                 </a> 
                 <button onclick="createShareModal('${item.NombrePresentacion}', [ 3, 4, 5, 6 ])" class="row-action-button w-7 h-7">
                     <img 
-                        class="w-7 bg-green rounded-md border-2 border-grayBg hover:bg-black" 
+                        class="w-7 bg-green rounded-md border-2 border-gray-bg hover:bg-black" 
                         src="assets/imgs/16 compartir hover.png"
                     />
                 </button> 
@@ -172,7 +172,7 @@ async function createPresentationsTable(){
                     onclick="showSuccessMessage('${item.NombrePresentacion}', 'eliminar')"
                     >
                     <img 
-                        class="w-7 bg-green rounded-md border-2 border-grayBg hover:bg-black" 
+                        class="w-7 bg-green rounded-md border-2 border-gray-bg hover:bg-black" 
                         src="assets/imgs/10 eliminar hover.png"
                     />
                 </a>

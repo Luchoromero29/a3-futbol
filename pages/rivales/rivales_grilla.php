@@ -1,5 +1,5 @@
-<div class="flex flex-col bg-lightGrayBg justify-center items-center rounded-3xl p-8 gap-10">
-    <div class="text-grayBg relative">
+<div class="flex flex-col bg-light-gray-bg justify-center items-center rounded-3xl p-8 gap-10">
+    <div class="text-gray-bg relative">
         <span class="font-bold">CLUBES</span>
         <span id="club-count" class="ml-1 text-sm">(10)</span>
     </div>
@@ -8,7 +8,7 @@
         <!-- <div class="rivales-item-drag bg-green rounded-md flex flex-col justify-center items-center p-1 gap-1" draggable="true"
             ondragstart="dragStart(event)" ondragover="allowDrop(event)" ondrop="drop(event)">
             <div class="hidden">X</div>
-            <div class="bg-lightGreen rounded-t-md">
+            <div class="bg-light-green rounded-t-md">
                 <img src="assets/mi_club/fichas_escudos/escudo_boca_juniors.png" alt="">
             </div>
             <span class="text-white">Boca Juniors</span>

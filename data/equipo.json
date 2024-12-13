@@ -1,0 +1,8 @@
+{
+    "id": 1,
+    "nombre": "Boca Juniors",
+    "escudo": "../../assets/mi_club/fichas_escudos/escudo_boca_juniors.png",
+    "arquero": "../../assets/mi_club/fichas_escudos/7.png",
+    "jugador": "../../assets/mi_club/fichas_escudos/5.png",
+    "suplente": "../../assets/mi_club/fichas_escudos/6.png"
+}

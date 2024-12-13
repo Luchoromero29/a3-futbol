@@ -1,0 +1,37 @@
+.dragging-miplantel{
+    opacity: 0.2;
+}
+
+.asigned {
+    background-color: var(--green);
+    color: white;
+
+    
+}
+
+.asigned:hover .icon-to-info-player  {
+    background-image: url('../../assets/imgs/drag-white.png');
+}
+
+.icon-to-info-player{
+    background-image: url('../../assets/imgs/drag-black.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.asigned:hover {
+    background-color: var(--dark-green);
+}
+
+.not-asigned {
+    background-color: var(--gray-bg);
+    color: black;
+}
+
+.not-asigned:hover {
+    background-color: var(--dark-green);
+}
+
+.not-asigned:hover .icon-to-info-player  {
+    background-image: url('../../assets/imgs/drag-green.png');
+}

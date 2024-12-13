@@ -1,9 +1,11 @@
-<section class=" w-[93%] xl:w-[98%] relative bg-white mt-8 relative z-10 border border-linesColor">
+<section class=" w-[93%] xl:w-[98%] relative bg-white mt-8 relative z-10 border border-lines-color">
     <!-- Mensaje de seleccionados / Add Presentation btn -->
-    <header class="bg-black w-full flex px-[10px] py-1 items-center rounded-sm ">
+    <header class="bg-black w-full flex px-[10px] py-1 gap-2 items-center rounded-sm ">
         <img class="h-8 w-8" src="../../assets/menu_inicio/4.png" />
-        <p class="text-white ml-2">Mi plantel</p>
-        <p id="name-plantel" class="text-white ml-2"></p>
+        <div class="flex" >
+            <p class="text-white ">Mi plantel</p>
+            <p id="name-plantel" class="text-white "></p>
+        </div>
     </header>
 
     <div id="add-pr-sel-msgs-container" class="flex w-full justify-end pr-6 pb-1 pt-4">
@@ -12,9 +14,9 @@
                 <img class="w-6 h-6" src="../../assets/imgs/5.png" original-src="../../assets/imgs/5.png"
                     data-hover-src="../../assets/imgs/cerrarHover.png" alt="Deseleccionar boton">
             </button>
-            <p class="text-grayBg"><span id="selectedCount">0</span> Seleccionados</p>
+            <p class="text-gray-bg"><span id="selectedCount">0</span> Seleccionados</p>
         </div>
-        <div id="msg-success-pr" class="hidden w-full  bg-lightGreen flex justify-between 
+        <div id="msg-success-pr" class="hidden w-full  bg-light-green flex justify-between 
                             ml-7 mr-1 pl-4 pr-2 py-3 rounded-md">
             <p id="msg-success-pr-text" class="text-sm"></p>
             <button id="close-success-message">
@@ -22,7 +24,7 @@
             </button>
         </div>
     </div>
-    <div id="add-user-container" class=" flex flex-col justify-end px-4">
+    <div id="add-user-container" class=" flex  justify-between items-center px-4">
         <button class="flex border-none gap-2 justify-center w-fit">
             <!-- Lo mismo que en el editar, linkeo el user.php para poder ver la redireccion, faltaria ajustarle el href y pasar el id como parametro -->
             <a id="add-user-miplantel">
@@ -32,11 +34,23 @@
                 <span class="absolute inset-0 flex items-center justify-center text-lg text-white">+</span>
             </div>
         </button>
+        <button id="button-list-miplantel" class="hidden hover:text-green flex gap-2 justify-center items-center">
+            <img src="../../assets/imgs/list-black.png" class="w-6" />
+            <span>Vista lista</span>
+        </button>
+        <button id="button-grid-miplantel" class=" hover:text-green flex gap-2 justify-center items-center">
+            <img src="../../assets/imgs/grilla-black.png" class="w-6" />
+            <span>Vista grilla</span>
+        </button>
     </div>
     <!-- tabla -->
 
-    <div id="miplantel-table-container" class=" w-full overflow-x-auto p-4">
+    <div id="miplantel-table-container" class="w-full overflow-x-auto p-4">
         <?php include 'miplantel_table.php'; ?>
+    </div>
+
+    <div id="miplantel-grilla-container" class="hidden w-full overflow-x-auto p-4">
+        <?php include 'miplantel_grilla.php'; ?>
     </div>
 
     <div id="miplantel-infouser-container" class="hidden w-full p-4">
@@ -45,7 +59,7 @@
 
 
     <div id="deleteModal" class="fade-in hidden fixed inset-0 flex justify-center items-center z-100 bg-black/50">
-        <div class="border border-linesColor rounded-md shadow-xl overflow-hidden bg-white">
+        <div class="border border-lines-color rounded-md shadow-xl overflow-hidden bg-white">
             <header class="p-4 text-center bg-green text-white flex gap-1 justify-center items-center rounded-t-md ">
                 <p>Deseas eliminar los jugadores seleccionados?</p>
             </header>
@@ -62,9 +76,18 @@
             </main>
         </div>
     </div>
-    <div id="userInfoModal"
-        class="hidden top-0 left-0 fixed h-full w-full flex justify-center items-center z-100 bg-black/30 ">
+
+    <div id="alert" class="border border-lines-color left-[50%] rounded-md shadow-lg w-60  fixed bottom-5 hidden">
+        <header class="bg-green text-white flex gap-1 justify-center items-center  rounded-t-md">
+            <p class="text-3xl">!</p>
+            <p>ATENCIÓN</p>
+        </header>
+        <main class="p-2 text-wrap text-center flex items-center justify-center rounded-b-md bg-white">
+            <p id="label-alert"></p>
+        </main>
     </div>
+
+
 
     <style>
         #pr-table th,
@@ -77,35 +100,5 @@
 </section>
 
 <script>
-    // let currentFlap = document.querySelector('.miplantel-current-flap');
 
-    // const toggleFlap = (event) => {
-
-    //     //saco estilos actuales de seleccionado
-    //     currentFlap.classList.remove('miplantel-current-flap');
-    //     quitStylesFlap(currentFlap.children);
-
-
-    //     //agrego estilos al seleccionado
-    //     const li = event.target.closest('li');
-    //     li.classList.add('miplantel-current-flap');
-    //     currentFlap = li;
-    //     addStylesFlap(currentFlap.children);
-    // }
-
-    // const addStylesFlap = (node) => {
-    //     const [img, imgHover] = node;
-    //     img.classList.add('hidden');
-    //     imgHover.classList.remove('hidden');
-    // }
-    // const quitStylesFlap = (node) => {
-    //     const [img, imgHover] = node;
-    //     img.classList.remove('hidden');
-    //     imgHover.classList.add('hidden');
-    // }
-
-
-    // document.addEventListener("DOMContentLoaded", () => {
-    //     addStylesFlap(currentFlap.children);
-    // });
 </script>

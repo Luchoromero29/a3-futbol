@@ -3,10 +3,10 @@
         <img class="h-8 w-8" src="../../assets/mi_club/1.png" />
         <p class="text-white ml-2">Mi club</p>
     </header>
-    <main class="bg-white w-full flex flex-grow border border-linesColor items-center p-10">
+    <main class="bg-white w-full flex flex-grow border border-lines-color items-center p-10">
         <?php include '../equipo/equipo_form.php' ?>
     </main>
-    <div id="alert" class="border border-linesColor rounded-md shadow-lg w-60 fixed bottom-5 hidden">
+    <div id="alert" class="border border-lines-color rounded-md shadow-lg w-60 fixed bottom-5 hidden">
         <header class="bg-green text-white flex gap-1 justify-center items-center  rounded-t-md">
             <p class="text-3xl">!</p>
             <p>ATENCIÓN</p>
@@ -15,7 +15,7 @@
             <p id="label-alert"></p>
         </main>
     </div>
-    <div id="alert" class="border border-linesColor rounded-md shadow-3xl w-60 fixed bottom-5 hidden">
+    <div id="alert" class="border border-lines-color rounded-md shadow-3xl w-60 fixed bottom-5 hidden">
         <header class="bg-green text-white flex gap-1 justify-center items-center  rounded-t-md">
             <p class="text-3xl">!</p>
             <p>ATENCIÓN</p>

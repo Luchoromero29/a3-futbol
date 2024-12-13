@@ -1,5 +1,5 @@
 <section id="presentations-table-container"
-    class=" w-[93%] xl:w-[90%]  bg-white mt-8  z-10 border border-linesColor">
+    class=" w-[93%] xl:w-[90%]  bg-white mt-8  z-10 border border-lines-color">
     <!-- Mensaje de seleccionados / Add Presentation btn -->
     <header class="bg-black w-full flex px-[10px] py-1 items-center rounded-sm ">
         <img class="h-8 w-8" src="../../assets/menu_inicio/5.png" />
@@ -13,9 +13,9 @@
                     <img class="w-6 h-6" src="../../assets/imgs/5.png" original-src="../../assets/imgs/5.png"
                         data-hover-src="../../assets/imgs/cerrarHover.png" alt="Deseleccionar boton">
                 </button>
-                <p class="text-grayBg"><span id="selectedCount">0</span> Seleccionados</p>
+                <p class="text-gray-bg"><span id="selectedCount">0</span> Seleccionados</p>
             </div>
-            <div id="msg-success-pr" class="hidden w-full  bg-lightGreen flex justify-between 
+            <div id="msg-success-pr" class="hidden w-full  bg-light-green flex justify-between 
                                 ml-7 mr-1 pl-4 pr-2 py-3 rounded-md">
                 <p id="msg-success-pr-text" class="text-sm"></p>
                 <button id="close-success-message">
@@ -50,13 +50,13 @@
     </section>
     
     <!-- tabla -->
-    <section id="rivales-table-container" class=" w-full overflow-x-auto p-8 border border-linesColor">
+    <section id="rivales-table-container" class=" w-full overflow-x-auto p-8 border border-lines-color">
         <?php include 'rivales_table.php';?>
     </section>
 
 
     <div id="deleteModal" class="fade-in hidden fixed inset-0 flex w-screen h-screen justify-center items-center z-100 bg-black/50">
-        <div class="border border-linesColor rounded-md shadow-xl overflow-hidden bg-white">
+        <div class="border border-lines-color rounded-md shadow-xl overflow-hidden bg-white">
             <header class="p-4 text-center bg-green text-white flex gap-1 justify-center items-center rounded-t-md ">
                 <p>Deseas eliminar al Club y a los jugadores?</p>
             </header>
@@ -107,7 +107,7 @@ const buttonList = document.getElementById('button-list-rivales');
         buttonGrid.classList.remove('hidden');
         rivalesTable.classList.remove('hidden');
         rivalesGrilla.classList.add('hidden');
-        localStorage.setItem('vista', 'table');
+        localStorage.setItem('vista-rivales', 'table');
     });
 
     buttonGrid.addEventListener('click', () => {
@@ -115,15 +115,15 @@ const buttonList = document.getElementById('button-list-rivales');
         buttonGrid.classList.add('hidden');
         rivalesTable.classList.add('hidden');
         rivalesGrilla.classList.remove('hidden');
-        localStorage.setItem('vista', 'grilla');
+        localStorage.setItem('vista-rivales', 'grilla');
     });
 
 
     const cargarVista = () => {
-        const vista = localStorage.getItem('vista');
+        const vista = localStorage.getItem('vista-rivales');
 
         if(!vista){
-            localStorage.setItem('vista', 'table');
+            localStorage.setItem('vista-rivales', 'table');
         }
 
         if (vista === 'grilla') {
@@ -138,7 +138,6 @@ const buttonList = document.getElementById('button-list-rivales');
             rivalesGrilla.classList.add('hidden');
         }
     }
-
 
     cargarVista();
 

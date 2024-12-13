@@ -3,7 +3,7 @@
         <img class="h-8 w-8" src="../../assets/usuarios/12 para titulo de pantalla.png" />
         <p class="text-white ml-2">Usuarios</p>
     </header>
-    <main class="bg-white w-full flex flex-grow border border-linesColor items-center p-10">
+    <main class="bg-white w-full flex flex-grow border border-lines-color items-center p-10">
         <form id="user-form" class="flex flex-col w-full h-full gap-12 justify-center items-center">
             <div class="w-full md:h-[90%] h-[94%]  flex flex-col md:flex-row  md:justify-between gap-6">
 
@@ -14,35 +14,35 @@
                             <p class="text-green">*</p>
                         </div>
                         <input required name="nombre" type="text"
-                            class="border border-linesColor px-2 py-1 rounded-lg focus:outline-none caret-green">
+                            class="border border-lines-color px-2 py-1 rounded-lg focus:outline-none caret-green">
                     </label>
                     <label class="flex flex-col gap-1 row-span-1">
                         <div class="flex gap-1">
                             <p>Fecha de nacimiento</p>
                         </div>
                         <input name="birthdate" type="date"
-                            class="border border-linesColor px-2 py-1 rounded-lg focus:outline-none caret-green">
+                            class="border border-lines-color px-2 py-1 rounded-lg focus:outline-none caret-green">
                     </label>
                     <label class="flex flex-col gap-1 row-span-1">
                         <div class="flex gap-1">
                             <p>Sexo</p>
                         </div>
                         <input name="sexo" type="text"
-                            class="border border-linesColor px-2 py-1 rounded-lg focus:outline-none caret-green">
+                            class="border border-lines-color px-2 py-1 rounded-lg focus:outline-none caret-green">
                     </label>
                     <label class="flex flex-col gap-1 row-span-1">
                         <div class="flex gap-1">
                             <p>Nacionalidad</p>
                         </div>
                         <input name="nacionalidad" type="text"
-                            class="border border-linesColor px-2 py-1 rounded-lg focus:outline-none caret-green">
+                            class="border border-lines-color px-2 py-1 rounded-lg focus:outline-none caret-green">
                     </label>
                     <label class="flex flex-col gap-1 row-span-1">
                         <div class="flex gap-1">
                             <p>Domicilio (Lugar de residencia actual)</p>
                         </div>
                         <input name="domicilio" type="text"
-                            class="border border-linesColor px-2 py-1 rounded-lg focus:outline-none caret-green">
+                            class="border border-lines-color px-2 py-1 rounded-lg focus:outline-none caret-green">
                     </label>
                     <label class="flex flex-col gap-1 row-span-1">
                         <div class="flex gap-1">
@@ -50,17 +50,17 @@
                             <p class="text-green">*</p>
                         </div>
                         <input required name="email" type="email"
-                            class="border border-linesColor px-2 py-1 rounded-lg focus:outline-none caret-green">
+                            class="border border-lines-color px-2 py-1 rounded-lg focus:outline-none caret-green">
                     </label>
                     <label class="flex flex-col gap-1 row-span-1">
                         <div class="flex gap-1">
                             <p>Celular</p>
                         </div>
                         <input name="celular" type="text"
-                            class="border border-linesColor px-2 py-1 rounded-lg focus:outline-none caret-green">
+                            class="border border-lines-color px-2 py-1 rounded-lg focus:outline-none caret-green">
                     </label>
                 </div>
-                <div class="md:bg-grayBg md:w-1 md:h-full md:w-1"></div>
+                <div class="md:bg-gray-bg md:w-1 md:h-full md:w-1"></div>
                 <div class="w-full h-full  grid grid-rows-7 md:gap-12  max-w-[400px] m-auto">
 
                     <div class="row-span-3 grid grid-rows-3 gap-12">
@@ -83,7 +83,7 @@
                                 <p class="text-green">*</p>
                             </div>
                             <input required name="password" type="password"
-                                class="border border-linesColor px-2 py-1 rounded-lg focus:outline-none caret-green">
+                                class="border border-lines-color px-2 py-1 rounded-lg focus:outline-none caret-green">
                         </label>
                     </div>
                     <div class=" md:row-span-2"></div>
@@ -94,7 +94,7 @@
                                 <p class="text-green">*</p>
                             </div>
                             <select required name="cargo" type="text"
-                                class="hover:border-green border border-linesColor px-2 py-1.5 rounded-lg focus:outline-none caret-green">
+                                class="hover:border-green border border-lines-color px-2 py-1.5 rounded-lg focus:outline-none caret-green">
                                 <option value="">Seleccionar</option>
                             </select>
                         </label>
@@ -104,7 +104,7 @@
                                 <p class="text-green">*</p>
                             </div>
                             <select required name="rol" type="text"
-                                class="hover:border-green border border-linesColor px-2 py-1.5 rounded-lg focus:outline-none caret-green">
+                                class="hover:border-green border border-lines-color px-2 py-1.5 rounded-lg focus:outline-none caret-green">
                                 <option value="">Seleccionar</option>
                             </select>
                         </label>
@@ -119,7 +119,7 @@
             </div>
         </form>
     </main>
-    <div id="alert" class="border border-linesColor rounded-md shadow-lg w-60 fixed bottom-5 hidden">
+    <div id="alert" class="border border-lines-color rounded-md shadow-lg w-60 fixed bottom-5 hidden">
         <header class="bg-green text-white flex gap-1 justify-center items-center  rounded-t-md">
             <p class="text-3xl">!</p>
             <p>ATENCIÓN</p>

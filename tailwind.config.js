@@ -7,13 +7,13 @@ tailwind.config = {
     extend: {
       colors: {
         green: 'rgb(62, 177, 110)',
-        darkGreen: 'rgb(44, 125, 78)',
-        lightGreen: 'rgb(216, 240, 226)',
-        grayBg: 'rgb(153, 153, 153)',
-        darkGrayBg:'rgb(102, 102, 102)',
+        'dark-green': 'rgb(44, 125, 78)',
+        'light-green': 'rgb(216, 240, 226)',
+        'gray-bg': 'rgb(197, 197, 197)',
+        'dark-gray-bg':'rgb(102, 102, 102)',
         black: 'rgb(48, 48, 48)',
-        lightGrayBg: 'rgb(244, 245, 246)',
-        linesColor: 'rgb(230, 230, 230)'
+        'light-gray-bg': 'rgb(244, 245, 246)',
+        'lines-color': 'rgb(230, 230, 230)'
       }
     }
   }

@@ -14,7 +14,7 @@ function addEventHandlers() {
             // Mensaje que se compartió correctamente
             showSuccessMessage($('#pr-name-span').text(), 'compartir');
         }else{
-            $("#share-modal, #close-modal-btn").toggleClass("!bg-lightGrayBg");
+            $("#share-modal, #close-modal-btn").toggleClass("!bg-light-gray-bg");
             $("#users-w-permissions-container").toggleClass("hidden");
             $("#users-share-container").toggleClass("hidden");
             $('#compartir-mode-title').text('Compartido')
@@ -26,7 +26,7 @@ function addEventHandlers() {
     $('#open-users-share-table').on('click', function(){
         $("#users-w-permissions-container").toggleClass("hidden");
         $("#users-share-container").toggleClass("hidden");
-        $("#share-modal, #close-modal-btn").toggleClass("!bg-lightGrayBg");
+        $("#share-modal, #close-modal-btn").toggleClass("!bg-light-gray-bg");
         $('#compartir-mode-title').text('Compartir')
         $('#ready-share-btn').text('Agregar')
     })
@@ -111,7 +111,7 @@ async function closeShareModal (){
     // Volver a pestaña usuarios con acceso
     $("#users-w-permissions-container").removeClass("hidden");
     $("#users-share-container").addClass("hidden");
-    $("#share-modal, #close-modal-btn").removeClass("!bg-lightGrayBg");
+    $("#share-modal, #close-modal-btn").removeClass("!bg-light-gray-bg");
     $('#compartir-mode-title').text('Compartido')
     $('#ready-share-btn').text('Listo')
     newUsersAdded.clear()
@@ -435,7 +435,7 @@ async function createUsersShareTable(usersWithPermissions){
             // Botón seleccionar
             `
             <div id="${item.id}-add-delete-btn-user" class= "flex items-center gap-3 relative w-full pl-4">
-                <button class="select-button w-4 h-4 border-2 border-grayBg rounded-md hover:border-green">
+                <button class="select-button w-4 h-4 border-2 border-gray-bg rounded-md hover:border-green">
                     <span class="select-button-content rounded-md">
                         <img src="assets/imgs/3.png" alt="">
                     </span>

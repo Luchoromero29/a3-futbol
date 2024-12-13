@@ -1,6 +1,6 @@
 // userInfoModalData.js
 /*
-                <div class="h-10 w-10 bg-grayBg/40 hover:bg-black transition duration-300 p-2 rounded-full cursor-pointer relative closeInfoUserModal">
+                <div class="h-10 w-10 bg-gray-bg/40 hover:bg-black transition duration-300 p-2 rounded-full cursor-pointer relative closeInfoUserModal">
                     <div class="w-1 h-6 bg-white rounded-md rotate-45 absolute top-[8.5px] left-[18px]"></div>
                     <div class="w-1 h-6 bg-white rounded-md rotate-[-45deg] absolute top-[8.5px] left-[18px]"></div>
                 </div> 
@@ -32,60 +32,60 @@ export function generateUserInfoModal(user) {
                 <div class="flex flex-col gap-6 px-4">
                     <div class="flex flex-col">
                         <span class="font-bold">Fecha de nacimiento</span>
-                        <span class="text-grayBg text-sm">${user.birthdate}</span>
+                        <span class="text-gray-bg text-sm">${user.birthdate}</span>
                     </div>
                     <div class="flex flex-col">
                         <span class="font-bold">Nacionalidad</span>
-                        <span class="text-grayBg text-sm">${user.nacionalidad}</span>
+                        <span class="text-gray-bg text-sm">${user.nacionalidad}</span>
                     </div>
                     <div class="flex flex-col">
                         <span class="font-bold">Domicilio (lugar de residencia actual)</span>
-                        <span class="text-grayBg text-sm">${user.domicilio}</span>
+                        <span class="text-gray-bg text-sm">${user.domicilio}</span>
                     </div>
                     <div class="flex gap-14">
                         <div class="flex flex-col">
                             <span class="font-bold">Dirección de email</span>
-                            <span class="text-grayBg text-sm">${user.email}</span>
+                            <span class="text-gray-bg text-sm">${user.email}</span>
                         </div>
                         <div class="flex flex-col">
                             <span class="font-bold">Celular</span>
-                            <span class="text-grayBg text-sm">${user.celular}</span>
+                            <span class="text-gray-bg text-sm">${user.celular}</span>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="grid rounded-3xl bg-lightGrayBg grid-cols-2 grid-rows-2 px-10 py-8 gap-x-14 gap-y-8">
+            <div class="grid rounded-3xl bg-light-gray-bg grid-cols-2 grid-rows-2 px-10 py-8 gap-x-14 gap-y-8">
                 <div class="flex flex-col col-span-1 row-span-1">
                     <div class="flex flex-col px-4">
                         <span class="font-bold">Deporte</span>
-                        <span class="text-grayBg text-sm">${user.deporte}</span>
+                        <span class="text-gray-bg text-sm">${user.deporte}</span>
                     </div>
                     <div class="mt-3 w-full bg-green h-0.5"></div>
                 </div>
                 <div class="flex flex-col col-span-1 row-span-1">
                     <div class="flex flex-col px-4">
                         <span class="font-bold">Cargo</span>
-                        <span class="text-grayBg text-sm">${user.cargo}</span>
+                        <span class="text-gray-bg text-sm">${user.cargo}</span>
                     </div>
                     <div class="mt-3 w-full bg-green h-0.5"></div>
                 </div>
                 <div class="flex flex-col col-span-1 row-span-1">
                     <div class="flex flex-col px-4">
                         <span class="font-bold">Departamento</span>
-                        <span class="text-grayBg text-sm">${user.departamento}</span>
+                        <span class="text-gray-bg text-sm">${user.departamento}</span>
                     </div>
                     <div class="mt-3 w-full bg-green h-0.5"></div>
                 </div>
                 <div class="flex flex-col col-span-1 row-span-1">
                     <div class="flex flex-col px-4">
                         <span class="font-bold">Rol</span>
-                        <span class="text-grayBg text-sm">${user.rol}</span>
+                        <span class="text-gray-bg text-sm">${user.rol}</span>
                     </div>
                     <div class="mt-3 w-full bg-green h-0.5"></div>
                 </div>
             </div>
             <div class="flex justify-end">
-                <button class="closeInfoUserModal p-3 rounded-lg bg-green text-white px-8 font-bold hover:bg-darkGreen">Listo</button>
+                <button class="closeInfoUserModal p-3 rounded-lg bg-green text-white px-8 font-bold hover:bg-dark-green">Listo</button>
             </div>
         </main>
         </div>

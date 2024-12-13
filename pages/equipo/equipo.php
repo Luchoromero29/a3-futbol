@@ -8,35 +8,35 @@
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
-    <script src="shareModal.js"></script>
+    
+    <link rel="stylesheet" href="../../styles.css">
+    <script src="../../script.js"></script>
+    <script src="../../shareModal.js"></script>
 
 
-    <script src="presentationsTable.js"></script>
-    <script src="usersTable.js"></script>
-    <script src="navigation.js"></script>
+    <script src="../../presentationsTable.js"></script>
+    <script src="../../navigation.js"></script>
     <script src="../../tailwind.config.js"></script>
     <title>Pizarra A3</title>
 </head>
 
-<body class="flex flex-col bg-lightGrayBg ">
+<body class="flex flex-col bg-light-gray-bg ">
     <!-- Usuario en header-->
     <header class="w-full flex justify-end bg-white min-h-[70px]">
         <div class="flex gap-2 items-center px-8 cursor-pointer text-sm xl:text-base">
-            <img class="w-[40px] rounded-full" src="assets/avatar_test/avatar09.jpg" alt="">
+            <img class="w-[40px] rounded-full" src="../../assets/avatar_test/avatar09.jpg" alt="">
             <div id="profile-header" class="relative">
                 <p class="font-medium text-black hover:text-green">Nombre de la Cuenta</p>
-                <div class="hidden absolute z-50 flex flex-col w-full bg-white border border-grayBg rounded-md text-sm">
+                <div class="hidden absolute z-50 flex flex-col w-full bg-white border border-gray-bg rounded-md text-sm">
                     <button id="change-photo-btn"
-                        class="py-2 gap-1 hover:text-green hover:bg-lightGrayBg flex items-center pl-[15%] rounded-t-md">
-                        <img class="h-5 w-5 inline rounded-full bg-grayBg" src="assets/imgs/14 lapiz hover.png" alt="">
+                        class="py-2 gap-1 hover:text-green hover:bg-light-gray-bg flex items-center pl-[15%] rounded-t-md">
+                        <img class="h-5 w-5 inline rounded-full bg-gray-bg" src="../../assets/imgs/14 lapiz hover.png" alt="">
                         Cambiar foto
                     </button>
                     <button id="sign-out-btn"
-                        class="py-2 gap-1 hover:text-green hover:bg-lightGrayBg flex items-center pl-[15%] rounded-b-md">
-                        <img class="h-5 w-5 inline" src="assets/imgs/off.png" original-src="assets/imgs/off.png"
-                            data-hover-src="assets/imgs/offHover.png" alt="">
+                        class="py-2 gap-1 hover:text-green hover:bg-light-gray-bg flex items-center pl-[15%] rounded-b-md">
+                        <img class="h-5 w-5 inline" src="../../assets/imgs/off.png" original-src="../../assets/imgs/off.png"
+                            data-hover-src="../../assets/imgs/offHover.png" alt="">
                         Cerrar sesión
                     </button>
                 </div>
@@ -46,7 +46,7 @@
     </header>
 
     <!-- Contenido General -->
-    <main class="bg-lightGrayBg w-full pl-[20%] h-full pb-10
+    <main class="bg-light-gray-bg w-full pl-[20%] h-full pb-10
                 flex-1 flex flex-col items-center justify-between 
                 relative text-sm xl:text-base">
         <!-- Panel de Navegación -->
