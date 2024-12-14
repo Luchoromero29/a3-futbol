@@ -14,7 +14,10 @@ tailwind.config = {
         black: 'rgb(48, 48, 48)',
         'light-gray-bg': 'rgb(244, 245, 246)',
         'lines-color': 'rgb(230, 230, 230)'
-      }
+      },
+      zIndex: {
+        '100': '100', // Añadir zIndex con valor 100
+      },
     }
   }
 }

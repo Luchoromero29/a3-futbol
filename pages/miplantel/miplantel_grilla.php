@@ -13,7 +13,16 @@
             </a>
         </header>
         <main id="container-rows-miplantel-grilla">
-            <div class="w-full flex flex-col">
+            
+        </main>
+    </div>
+    <footer>
+
+    </footer>
+</section>
+
+<!-- 
+<div class="w-full flex flex-col">
                 <header class="flex gap-2 items-center justify-center w-full">
                     <div class="flex text-gray-bg gap-1">
                         <p>Defensores</p>
@@ -23,12 +32,12 @@
                 </header>
                 <main>
                     <div class="dropzone flex items-center h-[220px] gap-4 " id="zone1">
-                        <!-- <div id="item1" draggable="true" class="draggable w-12 h-12 bg-blue-500"></div>
-                        <div id="item2" draggable="true" class="draggable w-12 h-12 bg-green"></div> -->
-                        <div id="item1" draggable="true" class="draggable relative flex p-1 gap-2 flex-col items-center not-asigned 
+                         <div id="item1" draggable="true" class="draggable w-12 h-12 bg-blue-500"></div>
+                        <div id="item2" draggable="true" class="draggable w-12 h-12 bg-green"></div> 
+                        <div id="item1" draggable="true" class="draggable relative flex p-1 gap-2 flex-col items-center asigned 
                             duration-150 rounded-lg cursor-pointer">
-                            <div class="absolute top-[-8px] right-[-8px] bg-green z-50 rounded-full h-5 w-5 
-                            flex items-center justify-center overflow-hidden hover:bg-black duration-150">
+                            <div id="miplantel-card-grilla-close" class="absolute top-[-8px] right-[-8px] z-50 rounded-full h-5 w-5 
+                            flex items-center justify-center overflow-hidden  duration-150">
                                 <img src="../../assets/imgs/close-white.png" class="w-5 h-5 object-cover" />
                             </div>
                             <div class="flex items-center justify-center rounded-t-md w-full h-[120px] relative">
@@ -46,7 +55,7 @@
                                 </a>
                             </div>
                         </div>
-                        <!-- <div id="item3" draggable="true" class="draggable flex p-1 gap-2 flex-col items-center bg-green rounded-lg">
+                        <div id="item3" draggable="true" class="draggable flex p-1 gap-2 flex-col items-center bg-green rounded-lg">
                             <div class="hidden">X</div>
                             <div class="flex items-center justify-center rounded-t-md w-full h-[120px]">
                                 <img src="../../assets/avatar_test/avatar04.jpg" alt="player" class="w-full h-full object-contain rounded-t-sm">
@@ -57,7 +66,7 @@
                                     <div class="icon-to-info-player w-5 h-5 bg-center bg-contain"></div>
                                 </a>
                             </div>
-                        </div> -->
+                        </div> 
                     </div>
                 </main>
             </div>
@@ -71,9 +80,9 @@
                 </header>
                 <main>
                     <div class="dropzone flex items-center h-[220px]  gap-4 py-5" id="zone2">
-                        <!-- <div id="item1" draggable="true" class="draggable w-12 h-12 bg-blue-500"></div>
-                        <div id="item2" draggable="true" class="draggable w-12 h-12 bg-green"></div> -->
-                        <!-- <div id="item2" draggable="true" class="draggable flex p-1 gap-2 flex-col items-center bg-green rounded-lg">
+                        <div id="item1" draggable="true" class="draggable w-12 h-12 bg-blue-500"></div>
+                        <div id="item2" draggable="true" class="draggable w-12 h-12 bg-green"></div>
+                         <div id="item2" draggable="true" class="draggable flex p-1 gap-2 flex-col items-center bg-green rounded-lg">
                             <div class="hidden">X</div>
                             <div class="flex items-center justify-center rounded-t-md w-full h-[120px]">
                                 <img src="../../assets/avatar_test/avatar02.jpg" alt="player" class="w-full h-full object-contain rounded-t-sm">
@@ -87,11 +96,11 @@
                                         alt="drag icon">
                                 </a>
                             </div>
-                        </div> -->
+                        </div>
                     </div>
                 </main>
             </div>
-            <!-- <div class="w-full flex flex-col">
+            <div class="w-full flex flex-col">
                 <header class="flex gap-2 items-center justify-center w-full">
                     <div class="flex text-gray-bg gap-1">
                         <p>Arqueros</p>
@@ -120,14 +129,7 @@
                         <div id="item6" draggable="true" class="draggable w-12 h-12 bg-yellow-300"></div>
                     </div>
                 </main>
-            </div> -->
+            </div> 
 
 
-            <!-- Drop Zone 2 -->
-
-        </main>
-    </div>
-    <footer>
-
-    </footer>
-</section>
+            Drop Zone 2 -->

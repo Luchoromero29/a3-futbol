@@ -58,21 +58,21 @@
     </div>
 
 
-    <div id="deleteModal" class="fade-in hidden fixed inset-0 flex justify-center items-center z-100 bg-black/50">
-        <div class="border border-lines-color rounded-md shadow-xl overflow-hidden bg-white">
-            <header class="p-4 text-center bg-green text-white flex gap-1 justify-center items-center rounded-t-md ">
-                <p>Deseas eliminar los jugadores seleccionados?</p>
+    <div id="deleteModal"
+        class="hidden fade-in fixed top-0 left-0 h-screen w-screen flex justify-center items-center z-100 bg-black/50">
+        <div class="border border-lines-color rounded-md shadow-xl overflow-hidden bg-white max-w-md mx-auto">
+            <header class="p-4 text-center bg-green text-white flex gap-1 justify-center items-center rounded-t-md">
+                <p>¿Deseas eliminar los usuarios seleccionados?</p>
             </header>
-            <main class="p-4 text-wrap text-center flex items-center justify-center rounded-b-md bg-white m-0">
+            <main class="p-4 text-wrap text-center flex items-center justify-center rounded-b-md bg-white">
                 <button id="cancelDelete"
-                    class="w-20 bg-gradient-to-b from-gray-200 to-black text-white p-1 rounded-l-lg border border-green transition-all duration-300 ease-out hover:bg-gradient-to-t hover:from-black hover:to-gray-200">
+                    class="w-20 bg-gradient-to-b from-gray-200 to-black text-white p-1 rounded-l-lg hover:text-green border border-green transition-all duration-300 ease-out hover:from-black/30 hover:to-black">
                     <p>No</p>
                 </button>
                 <button id="confirmDelete"
-                    class="w-20 bg-gradient-to-b from-gray-200 to-black text-white p-1 rounded-r-lg border border-green transition-all duration-300 ease-out hover:bg-gradient-to-t hover:from-black hover:to-gray-200">
-                    <p>Si</p>
+                    class="w-20 bg-gradient-to-b from-gray-200 to-black text-white p-1 rounded-r-lg hover:text-green border border-green transition-all duration-300 ease-out hover:from-black/30 hover:to-black">
+                    <p>Sí</p>
                 </button>
-
             </main>
         </div>
     </div>

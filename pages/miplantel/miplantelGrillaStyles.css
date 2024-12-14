@@ -9,18 +9,23 @@
     
 }
 
-.asigned:hover .icon-to-info-player  {
+.asigned .icon-to-info-player:hover  {
     background-image: url('../../assets/imgs/drag-white.png');
+}
+
+.asigned:hover {
+    background-color: var(--dark-green);
+}
+
+
+.asigned #miplantel-card-grilla-close {
+    background-color: var(--green);
 }
 
 .icon-to-info-player{
     background-image: url('../../assets/imgs/drag-black.png');
     background-size: contain;
     background-repeat: no-repeat;
-}
-
-.asigned:hover {
-    background-color: var(--dark-green);
 }
 
 .not-asigned {
@@ -32,6 +37,15 @@
     background-color: var(--dark-green);
 }
 
-.not-asigned:hover .icon-to-info-player  {
+.not-asigned .icon-to-info-player:hover  {
     background-image: url('../../assets/imgs/drag-green.png');
+}
+
+.not-asigned #miplantel-card-grilla-close{
+    background-color: var(--gray-bg);
+}
+
+
+#miplantel-card-grilla-close:hover {
+    background-color: var(--black);
 }

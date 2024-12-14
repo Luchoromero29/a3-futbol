@@ -16,12 +16,12 @@
     },
     {
       "name": "Arqueros",
-      "players": [4],
+      "players": [4, 12],
       "id": 4
     },
     {
       "name": "Sin asignar",
-      "players": [],
+      "players": [11, 13, 14, 15, 16],
       "id": 5
     }
   ]

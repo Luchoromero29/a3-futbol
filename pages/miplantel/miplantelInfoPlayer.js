@@ -13,6 +13,7 @@ let isCreatePlayer;
 const $tableContainer = document.getElementById("miplantel-table-container")
 const $infoPlayerContainer = document.getElementById("miplantel-infouser-container");
 const $addUserContainer = document.getElementById("add-user-container");
+const $grillaContainer = document.getElementById("miplantel-grilla-container");
 
 //elementos de la foto del jugador
 const $previewImg = document.getElementById('preview-img');
@@ -23,10 +24,6 @@ const $spanName = document.getElementById('player-name');
 //formulario de data general
 const $form = document.getElementById('infoGeneral-player-form');
 
-
-document.addEventListener("DOMContentLoaded", async () => {
-    await getData();
-});
 
 //Inicializo libreria summernote
 $(document).ready(function () {
@@ -67,6 +64,7 @@ const getDataForm = async () => {
 $(document).on('click', '#button-show-player, #add-user-miplantel', async function (event) {
 
     event.preventDefault();
+    
     //oculto las tablas y muestro el formulario
     toViewForms();
     addEvents();
@@ -272,6 +270,7 @@ const toViewForms = () => {
     $tableContainer.classList.add('hidden');
     $infoPlayerContainer.classList.remove('hidden');
     $addUserContainer.classList.add('hidden');
+    $grillaContainer.classList.add('hidden');
 }
 
 //oculto forms muestro tablas
