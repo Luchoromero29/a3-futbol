@@ -58,7 +58,7 @@
     </div>
 
 
-    <div id="deleteModal"
+    <!-- <div id="deleteModal"
         class="hidden fade-in fixed top-0 left-0 h-screen w-screen flex justify-center items-center z-100 bg-black/50">
         <div class="border border-lines-color rounded-md shadow-xl overflow-hidden bg-white max-w-md mx-auto">
             <header class="p-4 text-center bg-green text-white flex gap-1 justify-center items-center rounded-t-md">
@@ -75,7 +75,8 @@
                 </button>
             </main>
         </div>
-    </div>
+    </div> -->
+    <?php include '../../utilities/modalDelete/modalDelete.php'; ?>
 
     <div id="alert" class="border border-lines-color left-[50%] rounded-md shadow-lg w-60  fixed bottom-5 hidden">
         <header class="bg-green text-white flex gap-1 justify-center items-center  rounded-t-md">

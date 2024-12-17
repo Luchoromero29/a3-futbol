@@ -12,124 +12,59 @@
                 </div>
             </a>
         </header>
-        <main id="container-rows-miplantel-grilla">
-            
+        <main class="w-full flex flex-col ">
+             <div class="" id="container-rows-miplantel-grilla">
+                <!--<div id="miplantel-row-grilla" class="text-dark-gray-bg w-full flex flex-col hover:text-green ${empty}">
+                    <header class="header-row-grilla h-[30px] flex gap-2 items-center justify-center w-full">
+                        <div class="flex gap-1 text-nowrap   items-center">
+                            <label class="w-fit">
+                                <p></p>
+                                <input value="Perfectooo" class="focus:outline-none bg-transparent  caret-green"
+                                    type="text" />
+                            </label>
+                            <p id="miplantel-row-count">(5)</p>
+                            <div id="miplantel-row-options"
+                                class="hidden border-[1px] w-[100px] border-dark-gray-bg bg-white flex items-center justify-between gap-3 p-1 rounded-md">
+                                <div>
+                                    <img id="miplantel-icon-add-row" class="w-4"
+                                        src="../../assets/imgs/plus-black.png" />
+                                </div>
+                                <div>
+                                    <img id="miplantel-icon-edit-row" class="w-4"
+                                        src="../../assets/imgs/pencil-black.png" />
+                                </div>
+                                <div>
+                                    <img id="miplantel-icon-delete-row" class="w-4"
+                                        src="../../assets/imgs/delete-black.png" />
+                                </div>
+                            </div>
+                        </div>
+                        <div id="miplantel-row-divider" class="w-full h-[2px] bg-dark-gray-bg"></div>
+                    </header>
+                    <main>
+                        <div class="dropzone flex items-center min-h-[60px] gap-4 py-4 row-asigned">
+
+                        </div>
+                    </main>
+                </div> -->
+            </div> 
+            <div id="miplantel-row-sinasignar-grilla" class="text-dark-gray-bg w-full flex flex-col hover:text-green">
+                <header class="flex gap-2 items-center justify-center w-full">
+                    <div class="flex gap-1 text-nowrap flex-nowrap  items-center">
+                        <p>SIN ASIGNAR</p>
+                        <p id="miplantel-sinasignar-count"></p>
+                    </div>
+                    <div id="miplantel-row-sinasignar-divider" class="w-full h-[2px] bg-dark-gray-bg"></div>
+                </header>
+                <main>
+                    <div class="dropzone flex items-center min-h-[60px] gap-4 py-4 row-not-asigned" id="0">
+
+                    </div>
+                </main>
+            </div>
         </main>
     </div>
     <footer>
 
     </footer>
 </section>
-
-<!-- 
-<div class="w-full flex flex-col">
-                <header class="flex gap-2 items-center justify-center w-full">
-                    <div class="flex text-gray-bg gap-1">
-                        <p>Defensores</p>
-                        <p>(2)</p>
-                    </div>
-                    <div class="w-full h-[2px] bg-gray-bg"></div>
-                </header>
-                <main>
-                    <div class="dropzone flex items-center h-[220px] gap-4 " id="zone1">
-                         <div id="item1" draggable="true" class="draggable w-12 h-12 bg-blue-500"></div>
-                        <div id="item2" draggable="true" class="draggable w-12 h-12 bg-green"></div> 
-                        <div id="item1" draggable="true" class="draggable relative flex p-1 gap-2 flex-col items-center asigned 
-                            duration-150 rounded-lg cursor-pointer">
-                            <div id="miplantel-card-grilla-close" class="absolute top-[-8px] right-[-8px] z-50 rounded-full h-5 w-5 
-                            flex items-center justify-center overflow-hidden  duration-150">
-                                <img src="../../assets/imgs/close-white.png" class="w-5 h-5 object-cover" />
-                            </div>
-                            <div class="flex items-center justify-center rounded-t-md w-full h-[120px] relative">
-                                <img src="../../assets/avatar_test/avatar01.jpg" alt="player"
-                                    class="w-full h-full object-contain rounded-t-sm">
-                                <div id="miplantel-label-position-grilla"
-                                    class="hidden absolute bottom-0 bg-black/30 flex items-center justify-center w-full">
-                                    <p class="text-white text-sm">Arquero</p>
-                                </div>
-                            </div>
-                            <span class="text-center">Lionel Messi</span>
-                            <div>
-                                <a href="">
-                                    <div class="icon-to-info-player w-5 h-5 bg-center bg-contain"></div>
-                                </a>
-                            </div>
-                        </div>
-                        <div id="item3" draggable="true" class="draggable flex p-1 gap-2 flex-col items-center bg-green rounded-lg">
-                            <div class="hidden">X</div>
-                            <div class="flex items-center justify-center rounded-t-md w-full h-[120px]">
-                                <img src="../../assets/avatar_test/avatar04.jpg" alt="player" class="w-full h-full object-contain rounded-t-sm">
-                            </div>
-                            <span class="text-white text-sm text-center">Manu ginobili</span>
-                            <div>
-                                <a href="">
-                                    <div class="icon-to-info-player w-5 h-5 bg-center bg-contain"></div>
-                                </a>
-                            </div>
-                        </div> 
-                    </div>
-                </main>
-            </div>
-            <div class="w-full flex flex-col">
-                <header class="flex gap-2 items-center justify-center w-full">
-                    <div class="flex text-gray-bg gap-1">
-                        <p>Defensores</p>
-                        <p>(2)</p>
-                    </div>
-                    <div class="w-full h-[2px] bg-gray-bg"></div>
-                </header>
-                <main>
-                    <div class="dropzone flex items-center h-[220px]  gap-4 py-5" id="zone2">
-                        <div id="item1" draggable="true" class="draggable w-12 h-12 bg-blue-500"></div>
-                        <div id="item2" draggable="true" class="draggable w-12 h-12 bg-green"></div>
-                         <div id="item2" draggable="true" class="draggable flex p-1 gap-2 flex-col items-center bg-green rounded-lg">
-                            <div class="hidden">X</div>
-                            <div class="flex items-center justify-center rounded-t-md w-full h-[120px]">
-                                <img src="../../assets/avatar_test/avatar02.jpg" alt="player" class="w-full h-full object-contain rounded-t-sm">
-                            </div>
-                            <span class="text-white text-sm text-center">Ricardo darin</span>
-                            <div>
-                                <a href="">
-                                    <img src="../../assets/imgs/drag-black.png"
-                                        onmouseover="this.src='../../assets/imgs/drag-white.png'"
-                                        onmouseout="this.src='../../assets/imgs/drag-black.png'" class="w-5 object-contain"
-                                        alt="drag icon">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </main>
-            </div>
-            <div class="w-full flex flex-col">
-                <header class="flex gap-2 items-center justify-center w-full">
-                    <div class="flex text-gray-bg gap-1">
-                        <p>Arqueros</p>
-                        <p>(2)</p>
-                    </div>
-                    <div class="w-full h-[2px] bg-gray-bg"></div>
-                </header>
-                <main>
-                    <div class="dropzone w-3/4 h-16 mb-4 bg-gray-200 flex items-center " id="zone3">
-                        <div id="item3" draggable="true" class="draggable w-12 h-12 bg-white"></div>
-                        <div id="item4" draggable="true" class="draggable w-12 h-12 bg-red-300"></div>
-                    </div>
-                </main>
-            </div>
-            <div class="w-full flex flex-col">
-                <header class="flex gap-2 items-center justify-center w-full">
-                    <div class="flex text-gray-bg gap-1">
-                        <p>Delanteros</p>
-                        <p>(2)</p>
-                    </div>
-                    <div class="w-full h-[2px] bg-gray-bg"></div>
-                </header>
-                <main>
-                    <div class="dropzone w-3/4 h-16 mb-4 bg-gray-200 flex items-center " id="zone3">
-                        <div id="item5" draggable="true" class="draggable w-12 h-12 bg-blue-700"></div>
-                        <div id="item6" draggable="true" class="draggable w-12 h-12 bg-yellow-300"></div>
-                    </div>
-                </main>
-            </div> 
-
-
-            Drop Zone 2 -->

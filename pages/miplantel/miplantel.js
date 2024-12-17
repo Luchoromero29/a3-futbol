@@ -12,6 +12,8 @@ const $buttonGrid = document.getElementById('button-grid-miplantel');
 const $miplantelTable = document.getElementById('miplantel-table-container');
 const $miplantelGrilla = document.getElementById('miplantel-grilla-container');
 
+let nextIdPosition;
+
 export const getData = async () => {
     if (dataPlayers.length === 0) { // Si no está cargado, lo obtenemos
         let response = await fetch('../../data/players.json');
@@ -27,6 +29,7 @@ export const getData = async () => {
         response = await fetch('../../data/positions.json');
         data = await response.json();
         dataPositions = data;
+        nextIdPosition = dataPositions.length + 1; // Asignar el siguiente ID para la nueva posición
     }
 };
 
@@ -72,9 +75,9 @@ export const changePlayerPosition = (playerId, newPositionId, newIndex) => {
             console.warn(`El índice ${newIndex} está fuera de los límites para la posición con ID ${newPositionId}.`);
             newPosition.players.push(playerId); // Agregar al final si el índice no es válido
         }
-    } else {
-        console.error(`La posición con ID ${newPositionId} no existe.`);
-    }
+    } 
+    console.log(dataPositions);
+    
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -165,3 +168,51 @@ const deletePlayerOfPosition = (playerId) => {
     }
 }
 
+export const deletePosition = (positionId) => {
+    const positionIndex = dataPositions.findIndex(position => position.id === positionId);
+    
+    //recupero los jugadores afectados
+    if (positionIndex !== -1) {
+        dataPositions.splice(positionIndex, 1); // Eliminar la posición del array
+    } else {
+        console.warn(`La posición con ID ${positionId} no existe.`);
+    }
+
+    console.log(dataPositions);
+    
+}
+
+export const addPosition = (name, positionId) => {
+    const index = dataPositions.findIndex(position => position.id === positionId);
+  
+  // Si no encontramos el id retornamos 
+  if (index === -1) {
+    console.error("ID no encontrado en las posiciones");
+    return
+  }
+
+  // Creamos la nueva posición
+  const newPosition = {
+    name: name,
+    players: [],
+    id: nextIdPosition++, //creo un id ahora de manera local nomas, esto claramente se crea en el back
+  };
+
+  // Insertamos la nueva posición justo después de la posición con el id encontrado
+  dataPositions.splice(index + 1, 0, newPosition);
+  return newPosition.id;
+
+} 
+
+export const changeNamePosition = (name, positionId) => {
+    const position = dataPositions.find(pos => pos.id === positionId);
+
+    // Si la posición se encuentra, actualizamos su nombre
+    if (position) {
+        position.name = name;
+    } else {
+        console.error(`Posición con ID ${positionId} no encontrada.`);
+    }
+    console.log(dataPositions);
+    
+}

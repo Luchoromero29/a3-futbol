@@ -49,3 +49,42 @@
 #miplantel-card-grilla-close:hover {
     background-color: var(--black);
 }
+
+.empty {
+    color: var(--gray-bg) !important;
+}
+.empty:hover {
+    color: var(--green) !important;
+}
+
+.empty #miplantel-row-divider{
+    background-color: var(--gray-bg) ;
+}
+
+.empty:hover #miplantel-row-divider{
+    background-color: var(--green) !important;
+}
+
+.empty #miplantel-row-sinasignar-divider {
+    background-color: var(--gray-bg) !important;
+}
+
+#miplantel-row-grilla:hover #miplantel-row-divider {
+    background-color: var(--green) !important;
+}
+
+#miplantel-row-sinasignar-grilla:hover #miplantel-row-sinasignar-divider {
+    background-color: var(--green) !important;
+}
+
+#miplantel-input-name-position, #miplantel-row-name {
+    text-transform: uppercase;
+}
+
+.created {
+    color: var(--green) !important;
+}
+
+.created #miplantel-row-divider {
+    background-color: var(--green)!important;
+}
