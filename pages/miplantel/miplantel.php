@@ -21,6 +21,9 @@
     <!-- Estilos de la grilla del plantel -->
     <link rel="stylesheet" href="miplantelGrillaStyles.css" />
 
+    <!-- Estilos de transferencia de jugador-->
+    <link rel="stylesheet" href="miplantelTrasnferenciaStyle.css" />
+
     <script src="../../script.js"></script>
 
 
@@ -37,9 +40,20 @@
     <!-- Scripts de la grilla del plantel -->
     <script type="module" src="miplantelGrilla.js"></script>
 
+    <!-- Scripts de transferencia de jugador-->
+    <script type="module" src="miplantelTransferenciaModal.js"></script>
+
+
+
+
     <!-- Libreria de notas de observaciones -->
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-lite.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-lite.min.js"></script>
+
+    <!-- libreria para generar el pdf -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/print-js/1.6.0/print.min.js"></script>
+
+
 
     <script src="../../shareModal.js"></script>
     <script src="../../presentationsTable.js"></script>

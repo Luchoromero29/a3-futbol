@@ -1,4 +1,5 @@
-import { calcularFecha } from "../../utilities/functionsUtils.js";
+import { calcularFecha, mostrarSuccessMessage } from "../../utilities/functionsUtils.js";
+import { showModal } from "../../utilities/modalDelete/modalDelete.js";
 import { getData, addPlayer, removePlayer, removeMorePlayers, dataPlayers } from './miplantel.js';
 
 
@@ -101,51 +102,33 @@ export const initMiplantelTable = async () => {
     $('#deleteSelectedRowsButton').on('click', function () {
 
         //Mostrar modal
-        $('#deleteModal').removeClass('hidden');
+        showModal(
+            `Desea eliminar los ${selectedRowsArray.length} jugadores seleccionado`,
+            `Si`, 
+            `No`,
+            () => { deletePlayers() },
+            () => { }
+        )
 
-        //si cancela
-        $('#cancelDelete').off('click').on('click', function () {
-            $('#deleteModal').addClass('hidden');
-        });
-
-        //si confirma
-        $('#confirmDelete').off('click').on('click', function () {
+        const deletePlayers = () => {
             console.log("Eliminando usuarios con IDs:", selectedRowsArray);
-
+    
             // Eliminar la fila de la tabla
             selectedRowsArray.forEach((id) => {
                 const row = $(`${idTable} tbody tr[${itemId}="${id}"]`);
                 const rowIndex = dataTable.row(row).index();
                 dataTable.row(rowIndex).remove().draw();
             })
-
+    
             // Actualizar la lista de usuarios en el arreglo
             removeMorePlayers(selectedRowsArray);
-            console.log(dataPlayers);
+            mostrarSuccessMessage(`${selectedRowsArray.length} jugadores eliminados correctamente`);
 
-
-            //Ocultar modal
-            $('#deleteModal').addClass('hidden');
-
-            //elimino estilos de checkbox
-            $('#selectAllRowsButton').removeClass('bg-green');
-
-            mostrarSuccessMessage();
-            $('#msg-success-pr').text(`${selectedRowsCount} usuarios eliminados correctamente`);
-            let successMessageTimer = setTimeout(() => ocultarSuccessMessage(), 2500);
-
-            $('#close-success-message').on('click', function () {
-                $('#msg-success-pr').addClass('hidden');
-                clearTimeout(successMessageTimer);
-            })
+            //actualizo estilos
             deselectAllRows();
             ocultarDeleteAll();
-            updateSelectedUsersMessage();
-
-
-            //let successMessageTimer = setTimeout(ocultar(), 3000);
-        });
-
+        }
+        
     });
 
     // Botón seleccionar todas las filas
@@ -230,32 +213,25 @@ export const initMiplantelTable = async () => {
     //Eliminar fila individual desde el icon eliminar 
     $(document).on('click', '.iconDeleteRow', function (e) {
         e.preventDefault();
-
-        // Mostrar el modal de eliminación
-        $('#deleteModal').removeClass('hidden');
-
         // Recuperar el item directamente del data attribute
         const itemRow = $(this).data(`${itemName}`);
 
+        // Mostrar el modal de eliminación
+        showModal(
+            `Desea eliminar a ${itemRow.name} `,
+            `Si`, 
+            `No`,
+            () => { deletePlayer() },
+            () => { }
+        )
 
-        $('#cancelDelete').off('click').on('click', function () {
-            $('#deleteModal').addClass('hidden');
-        });
-
-
-        $('#confirmDelete').off('click').on('click', function () {
-            console.log("Eliminando item con ID:", itemRow.id);
-
-            // Eliminar la fila de la tabla
+        const deletePlayer = () => {
             const row = $(`${idTable} tbody tr[${itemId}="${itemRow.id}"]`);
             const rowIndex = dataTable.row(row).index();
             dataTable.row(rowIndex).remove().draw();
 
             // Actualizar la lista de jugadores en el arreglo
             removePlayer(itemRow.id);
-
-            // Ocultar el modal de eliminación
-            $('#deleteModal').addClass('hidden');
 
             if (selectedRowsArray.includes(itemRow.id)) {
 
@@ -267,15 +243,8 @@ export const initMiplantelTable = async () => {
                 updateSelectedUsersMessage();
             }
 
-
-            //Mostrar modal de confirmacion
             mostrarSuccessMessage(`El jugador "${itemRow.name}" ha sido eliminado correctamente`);
-
-            $('#close-success-message').on('click', function () {
-                $('#msg-success-pr').addClass('hidden');
-                clearTimeout(successMessageTimer);
-            })
-        });
+        }
     });
 
     $(document).on('click', '.closeInfoUserModal', function () {
@@ -316,13 +285,13 @@ export const renderTable = () => {
             calcularFecha(item.createdAt),
             calcularFecha(item.updatedAt),
             `<div class="flex gap-2 items-center justify-end">
-                <button  id="button-show-player" class="iconShowInfoUser row-action-button w-8 h-8" data-${itemId}='${JSON.stringify(item.id)}'>
+                <button  id="button-show-player" class="iconShowInfoUser row-action-button w-8 h-8" ${itemId}='${JSON.stringify(item.id)}'>
                     <img 
                         class="w-8 bg-black rounded-md border-2 border-gray-bg hover:bg-green" 
                         src="../../assets/imgs/1 Hover de lo que era la lupa original.png"
                     />
                 </button>
-                <a  id="" class="row-action-button w-8 h-8">
+                <a   class="miplantel-button-trasnferencia  row-action-button w-8 h-8" ${itemId}='${JSON.stringify(item.id)}'>
                     <img 
                         class="w-10 bg-black rounded-md border-2 border-gray-bg hover:bg-green" 
                         src="../../assets/imgs/arrow-tr-white.png"
@@ -383,16 +352,6 @@ const ocultarDeleteAll = () => {
     $('#deleteSelectedRowsButton').addClass('hidden');
 }
 
-const mostrarSuccessMessage = (label) => {
-    $('#msg-success-pr').removeClass('hidden');
-    $('#msg-success-pr').text(`${label}`);
-    setTimeout(() => ocultarSuccessMessage(), 2500);
-}
-
-//Ocultar cruz para deseleccionar todo
-const ocultarSuccessMessage = () => {
-    $('#msg-success-pr').addClass('hidden');
-}
 
 
 

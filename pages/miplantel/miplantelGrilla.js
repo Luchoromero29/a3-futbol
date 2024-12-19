@@ -1,5 +1,5 @@
 import { dataPlayers, dataPositions, changePlayerPosition, removePlayer, deletePosition, addPosition, changeNamePosition } from './miplantel.js';
-import { mostrarSuccessMessage } from '../../utilities/functionsUtils.js';
+import { mostrarSuccessMessage, extractNumberFromString } from '../../utilities/functionsUtils.js';
 import { showModal } from '../../utilities/modalDelete/modalDelete.js';
 
 //variables necesarias
@@ -9,9 +9,41 @@ const $rowSinAsignarContainer = document.getElementById('miplantel-row-sinasigna
 const $rowSinAsignarDropzone = $rowSinAsignarContainer.querySelector('.dropzone');
 const $rowSinAsignarCount = $rowSinAsignarContainer.querySelector('#miplantel-sinasignar-count');
 const $rowSinAsignarDivider = $rowSinAsignarContainer.querySelector('#miplantel-row-sinasignar-divider');
+const $rowSinAsignarOptions = $rowSinAsignarContainer.querySelector('#miplantel-sinasignar-row-options');
+
+
+
+const $carousel = document.querySelector('.carousel');
+const $leftButton = document.querySelector('#miplantel-carousel-left-button');
+const $rightButton = document.querySelector('#miplantel-carousel-right-button');
+
+const CARD_WIDTH = 130;
+const CARD_GAP = 16
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    //cargo eventos del carousel
+    handleCarousel();
+
+    //eventos de la fila sin asignar
+    $rowSinAsignarContainer.addEventListener('mouseover', () => {
+        $rowSinAsignarDivider.classList.remove('bg-gray-bg');
+        $rowSinAsignarDivider.classList.add('bg-green');
+        if (dataPositions.length == 0) {
+            $rowSinAsignarOptions.classList.remove('hidden');
+        }
+    })
+    
+    $rowSinAsignarContainer.addEventListener('mouseout', () => {
+        $rowSinAsignarDivider.classList.add('bg-gray-bg');
+        $rowSinAsignarDivider.classList.remove('bg-green');
+        $rowSinAsignarOptions.classList.add('hidden');
+    })
+    
+    const $iconAddFirstRow = $rowSinAsignarContainer.querySelector('#miplantel-icon-add-first-row');
+    $iconAddFirstRow.addEventListener('click', () => {
+        addRowGrilla(0);
+    })
 })
 
 
@@ -76,18 +108,18 @@ export const setEventDragAndDrop = () => {
                     draggable.classList.add('asigned');
                     draggable.classList.remove('not-asigned');
                 }
-                
+
                 // Actualizo el array de posiciones
                 let playerId = extractNumberFromString(id);
                 let positionId = extractNumberFromString(dropzone.id);
 
-                
+
                 //actualizo los estilos de la row
-                if (positionId == 0){
-                    if ($rowSinAsignarDropzone.children.length == 0 ){
+                if (positionId == 0) {
+                    if ($rowSinAsignarDropzone.children.length == 0) {
                         $rowSinAsignarContainer.classList.remove('empty');
-                    }  
-                }else {
+                    }
+                } else {
                     if (children.length == 0) {
                         rowContainer.classList.remove('empty');
                     }
@@ -95,7 +127,7 @@ export const setEventDragAndDrop = () => {
 
                 if (originDropzone && !originDropzone.closest('#miplantel-row-sinasignar-grilla')) {
                     const originRowContainer = originDropzone.closest('#miplantel-row-grilla');
-                    if (originDropzone.children.length == 1) {  
+                    if (originDropzone.children.length == 1) {
                         originRowContainer.classList.add('empty');
                     }
                 } else {
@@ -104,8 +136,6 @@ export const setEventDragAndDrop = () => {
                         $rowSinAsignarContainer.classList.add('empty');
                     }
                 }
-
-
 
                 changePlayerPosition(playerId, positionId, dropIndex);
 
@@ -133,6 +163,9 @@ export const setEventDragAndDrop = () => {
 
                 // Limpio la referencia de origen
                 originDropzone = null;
+
+                // Actualizo los botones del carousel
+                updateButtonVisibility();
             }
         });
     });
@@ -143,7 +176,7 @@ export const setEventDragAndDrop = () => {
 //renderizamos los jugadores en la grilla
 export const renderRows = async () => {
 
-    
+
 
     const rowsContainer = document.querySelector('#container-rows-miplantel-grilla');
     rowsContainer.innerHTML = '';
@@ -154,7 +187,7 @@ export const renderRows = async () => {
 
         //verifico si tiene players o esta vacio
         let isEmpty = '';
-        
+
         if (position.players.length == 0) {
             isEmpty = 'empty';
         }
@@ -188,16 +221,17 @@ export const renderRows = async () => {
     }
 
     $rowSinAsignarDropzone.innerHTML = '';
-    
+
     playersNotAssigned.forEach((player) => {
         $rowSinAsignarDropzone.innerHTML += cardPlayer(player, 'not-asigned');
     })
-    
+
     $rowSinAsignarCount.innerHTML = `(${$rowSinAsignarDropzone.children.length})`;
 
 
     setEventDragAndDrop();
     addEventsRowsGrilla();
+    updateButtonVisibility();
 }
 
 //funcion para eliminar jugador
@@ -225,7 +259,7 @@ $(document).on('click', '#miplantel-card-grilla-close', function (e) {
         renderRows();
 
         //informo la eliminacion del jugador
-        mostrarSuccessMessage(`Usuario ${player.name} eliminado correctamente`);
+        mostrarSuccessMessage(`Jugador ${player.name} eliminado correctamente`);
     }
 })
 
@@ -284,7 +318,7 @@ const addEventsRowsGrilla = () => {
             const dropzone = row.querySelector('.dropzone');
 
             if (dropzone.children.length == 0) {
-                removeRowGrilla(positionId); 
+                removeRowGrilla(positionId);
             } else {
                 //Mostrar modal
                 showModal(
@@ -300,57 +334,15 @@ const addEventsRowsGrilla = () => {
 
 
         $iconAddRow.addEventListener('click', () => {
-            const newId = addPosition("ESCRIBIR NOMBRE", positionId)
-            renderRows();
-
-            //recupero la row creada
-            const dropzone = document.getElementById("zone" + newId);
-            const rowContainer = dropzone.closest('#miplantel-row-grilla');
-
-            //agrego estilos de creada
-            rowContainer.classList.add('created');
-            setTimeout(() => {
-                rowContainer.classList.remove('created');
-            }, 2000);
+            addRowGrilla(positionId);
         })
 
         $iconEditRow.addEventListener('click', () => {
-            const $inputName = row.querySelector('#miplantel-input-name-position');
-            const $labelName = row.querySelector('#miplantel-row-name');
-
-            $inputName.classList.remove("hidden");
-            $labelName.classList.add("hidden");
-
-            $inputName.focus();
-
-            $inputName.addEventListener('blur', () => {
-                $inputName.classList.add("hidden");
-                $labelName.classList.remove("hidden");
-
-                if ($inputName.value.trim() === '') {
-                    return
-                } 
-
-                $labelName.textContent = $inputName.value;
-                const name = $inputName.value;
-
-                changeNamePosition(name, positionId);
-                // Ocultar el input y mostrar la etiqueta
-            });
-        })  
-
+            editRowGrilla(row, positionId);
+        })
     })
 
-    //eventos de la fila sin asignar
-    $rowSinAsignarContainer.addEventListener('mouseover', () => {
-        $rowSinAsignarDivider.classList.remove('bg-gray-bg');
-        $rowSinAsignarDivider.classList.add('bg-green');
-    })
-
-    $rowSinAsignarContainer.addEventListener('mouseout', () => {
-        $rowSinAsignarDivider.classList.add('bg-gray-bg');
-        $rowSinAsignarDivider.classList.remove('bg-green');
-    })
+    
 
 }
 
@@ -386,9 +378,12 @@ const rowOfGrilla = (position, empty) => {
             </div>`
 }
 
+
+
+
 const cardPlayer = (player, isAsigned) => {
     return `
-                <div id="${"item" + (player.id)}" draggable="true" class="draggable relative flex p-1 gap-2 flex-col items-center ${isAsigned}
+                <div id="${"item" + (player.id)}" draggable="true" class="draggable relative flex p-1 gap-2 max-w-[${CARD_WIDTH}px] min-w-[${CARD_WIDTH}px] flex-col items-center  ${isAsigned}
                     duration-150 rounded-lg cursor-pointer">
                     <div id="miplantel-card-grilla-close" data-${itemId}='${JSON.stringify(player.id)}' class="absolute top-[-8px] right-[-8px] z-30 rounded-full h-5 w-5 
                         flex items-center justify-center overflow-hidden  duration-150">
@@ -412,18 +407,90 @@ const cardPlayer = (player, isAsigned) => {
             `
 }
 
-//funcion de eliminar fila 
+
+//funcion para agregar fila a la grilla
+
+const addRowGrilla = (positionId) => {
+    const newId = addPosition("ESCRIBIR NOMBRE", positionId)
+    renderRows();
+
+    //recupero la row creada
+    const dropzone = document.getElementById("zone" + newId);
+    const rowContainer = dropzone.closest('#miplantel-row-grilla');
+
+    //agrego estilos de creada
+    rowContainer.classList.add('created');
+    setTimeout(() => {
+        rowContainer.classList.remove('created');
+    }, 2000);
+}
+
+//editar nombre de la grilla
+const editRowGrilla = (row, positionId) => {
+    const $inputName = row.querySelector('#miplantel-input-name-position');
+    const $labelName = row.querySelector('#miplantel-row-name');
+
+    $inputName.classList.remove("hidden");
+    $labelName.classList.add("hidden");
+
+    $inputName.focus();
+
+    $inputName.addEventListener('blur', () => {
+        $inputName.classList.add("hidden");
+        $labelName.classList.remove("hidden");
+
+        if ($inputName.value.trim() === '') {
+            return
+        }
+
+        $labelName.textContent = $inputName.value;
+        const name = $inputName.value;
+
+        changeNamePosition(name, positionId);
+        // Ocultar el input y mostrar la etiqueta
+    });
+}
+
+//funcion de eliminar fila de la grilla
 const removeRowGrilla = (id) => {
     deletePosition(id);
     renderRows();
+}
+//funcion para mostrar botones del carousel
+const updateButtonVisibility = () => {
+    const cantCards = $rowSinAsignarDropzone.children.length;
+    const carouselWidth = $carousel.offsetWidth;
+
+    const widthAllCards = cantCards * CARD_WIDTH + (cantCards - 1) * CARD_GAP;
+
+    if (widthAllCards > carouselWidth) {
+        $leftButton.style.display = 'block'
+        $rightButton.style.display = 'block'
+    } else {
+        $leftButton.style.display = 'none'
+        $rightButton.style.display = 'none'
+    }
+};
+
+//funcion para agregar eventos del carousel
+const handleCarousel = () => {
+    if ($carousel) {
+        // Eventos para mover el carrusel
+        $leftButton.addEventListener('click', () => {
+            $carousel.scrollLeft -= CARD_WIDTH;
+        });
+
+        $rightButton.addEventListener('click', () => {
+            $carousel.scrollLeft += CARD_WIDTH;
+        });
+
+        // Actualizar visibilidad al hacer scroll o redimensionar
+        window.addEventListener('resize', updateButtonVisibility);
+        // Inicializar visibilidad
+    }
 }
 
 
 
 
-//Funciones de utilidad para el codigo
 
-const extractNumberFromString = (str) => {
-    const match = str.match(/\d+/); // Busca cualquier grupo de dígitos en la cadena
-    return match ? parseInt(match[0], 10) : null; // Convierte el resultado a número o retorna null si no hay coincidencia
-};

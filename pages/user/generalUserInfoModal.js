@@ -1,10 +1,4 @@
-// userInfoModalData.js
-/*
-                <div class="h-10 w-10 bg-gray-bg/40 hover:bg-black transition duration-300 p-2 rounded-full cursor-pointer relative closeInfoUserModal">
-                    <div class="w-1 h-6 bg-white rounded-md rotate-45 absolute top-[8.5px] left-[18px]"></div>
-                    <div class="w-1 h-6 bg-white rounded-md rotate-[-45deg] absolute top-[8.5px] left-[18px]"></div>
-                </div> 
-*/
+
 // Función para generar el contenido del modal
 export function generateUserInfoModal(user) {
     return `

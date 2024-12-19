@@ -1,3 +1,3 @@
 <section>
-    Seccion de datos medicos
+    Seccion de datos médicos
 </section>

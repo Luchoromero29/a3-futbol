@@ -45,7 +45,7 @@
     </div>
     <!-- tabla -->
 
-    <div id="miplantel-table-container" class="w-full overflow-x-auto p-4">
+    <div id="miplantel-table-container" class="hidden w-full overflow-x-auto p-4">
         <?php include 'miplantel_table.php'; ?>
     </div>
 
@@ -57,25 +57,12 @@
         <?php include 'miplantel_infoPlayer.php'; ?>
     </div>
 
+    <div id="miplantel-trasnferencia-container" class="hidden w-full p-4">
+        <?php include 'modal_transferencia.php'; ?>
+    </div>
 
-    <!-- <div id="deleteModal"
-        class="hidden fade-in fixed top-0 left-0 h-screen w-screen flex justify-center items-center z-100 bg-black/50">
-        <div class="border border-lines-color rounded-md shadow-xl overflow-hidden bg-white max-w-md mx-auto">
-            <header class="p-4 text-center bg-green text-white flex gap-1 justify-center items-center rounded-t-md">
-                <p>¿Deseas eliminar los usuarios seleccionados?</p>
-            </header>
-            <main class="p-4 text-wrap text-center flex items-center justify-center rounded-b-md bg-white">
-                <button id="cancelDelete"
-                    class="w-20 bg-gradient-to-b from-gray-200 to-black text-white p-1 rounded-l-lg hover:text-green border border-green transition-all duration-300 ease-out hover:from-black/30 hover:to-black">
-                    <p>No</p>
-                </button>
-                <button id="confirmDelete"
-                    class="w-20 bg-gradient-to-b from-gray-200 to-black text-white p-1 rounded-r-lg hover:text-green border border-green transition-all duration-300 ease-out hover:from-black/30 hover:to-black">
-                    <p>Sí</p>
-                </button>
-            </main>
-        </div>
-    </div> -->
+
+
     <?php include '../../utilities/modalDelete/modalDelete.php'; ?>
 
     <div id="alert" class="border border-lines-color left-[50%] rounded-md shadow-lg w-60  fixed bottom-5 hidden">

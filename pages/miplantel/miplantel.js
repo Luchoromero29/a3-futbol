@@ -1,6 +1,8 @@
 export let dataPlayers = []; // El array compartido
 export let dataTeam;
 export let dataPositions;
+export let dataTeams;
+export let currentPlayer;
 
 import { renderRows  } from "./miplantelGrilla.js";
 import { renderTable } from "./miplantelTable.js";
@@ -23,13 +25,17 @@ export const getData = async () => {
         response = await fetch('../../data/equipo.json');
         data = await response.json();
         dataTeam = data;
-        console.log(dataTeam);
         
 
         response = await fetch('../../data/positions.json');
         data = await response.json();
         dataPositions = data;
         nextIdPosition = dataPositions.length + 1; // Asignar el siguiente ID para la nueva posición
+
+
+        response = await fetch('../../data/equipos.json');
+        data = await response.json();
+        dataTeams = data;
     }
 };
 
@@ -110,6 +116,11 @@ export const cargarVista = () => {
     }
 }
 
+//funcion para setear jugador
+export const setCurrentPlayer = (id) => {
+    currentPlayer = dataPlayers.find(player => player.id == id);
+} 
+
 //funcion para cambiar entre grilla y tabla
 const handleChangeViews = () => {
 
@@ -184,23 +195,24 @@ export const deletePosition = (positionId) => {
 
 export const addPosition = (name, positionId) => {
     const index = dataPositions.findIndex(position => position.id === positionId);
+    
+    // Creamos la nueva posición
+    const newPosition = {
+      name: name,
+      players: [],
+      id: nextIdPosition++, //creo un id ahora de manera local nomas, esto claramente se crea en el back
+    };
   
-  // Si no encontramos el id retornamos 
-  if (index === -1) {
-    console.error("ID no encontrado en las posiciones");
-    return
-  }
+    // Si el ID es 0, se crea la primera
+    if (!index) {
+        dataPositions.splice(0, 0, newPosition);
+        return newPosition.id;    
+    }
 
-  // Creamos la nueva posición
-  const newPosition = {
-    name: name,
-    players: [],
-    id: nextIdPosition++, //creo un id ahora de manera local nomas, esto claramente se crea en el back
-  };
 
-  // Insertamos la nueva posición justo después de la posición con el id encontrado
-  dataPositions.splice(index + 1, 0, newPosition);
-  return newPosition.id;
+    // Insertamos la nueva posición justo después de la posición con el id encontrado
+    dataPositions.splice(index + 1, 0, newPosition);
+    return newPosition.id;
 
 } 
 

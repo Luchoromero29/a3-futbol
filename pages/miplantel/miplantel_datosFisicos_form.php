@@ -1,3 +1,3 @@
 <section>
-    seccion de datos fisicos
+    Seccion de datos físicos
 </section>

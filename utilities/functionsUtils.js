@@ -60,3 +60,7 @@ export const ocultarSuccessMessage = () => {
     $('#msg-success-pr').addClass('hidden');
 }
 
+export const extractNumberFromString = (str) => {
+    const match = str.match(/\d+/); // Busca cualquier grupo de dígitos en la cadena
+    return match ? parseInt(match[0], 10) : null; // Convierte el resultado a número o retorna null si no hay coincidencia
+};

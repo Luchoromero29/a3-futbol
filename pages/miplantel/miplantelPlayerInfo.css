@@ -23,3 +23,9 @@ textarea:focus {
 .icon-inactive {
     display: hidden !important;
 }
+
+
+.fullscreen, .note-editing-area {
+    z-index: 99999;
+    background-color: var(--white) !important;
+}

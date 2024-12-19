@@ -1,7 +1,8 @@
 import { showErrorInput, removeErrorInput, showAlert, mostrarSuccessMessage } from "../../utilities/functionsUtils.js";
-import { getData, cargarVista } from './miplantel.js';
+import { cargarVista, setCurrentPlayer, currentPlayer } from './miplantel.js';
 //variables necesarias
 let currentFlap;
+const itemId = "player_id"
 
 //largo maximo de inputs
 const maxLengthInput = 100;
@@ -64,19 +65,20 @@ const getDataForm = async () => {
 $(document).on('click', '#button-show-player, #add-user-miplantel', async function (event) {
 
     event.preventDefault();
-    
+
     //oculto las tablas y muestro el formulario
     toViewForms();
     addEvents();
 
     // recupero el id del jugador
-    const idPlayer = $(this).data('player_id');
+    const idPlayer = $(this).attr(itemId);
 
     let data;
 
     //si hay id busco los datos, sino preparo para gargar los datos
     if (idPlayer) {
         data = await getDataPlayer();
+        setCurrentPlayer(idPlayer);
         isCreatePlayer = false;
     } else {
         data = await getDataForm();
@@ -85,6 +87,17 @@ $(document).on('click', '#button-show-player, #add-user-miplantel', async functi
 
     renderFlaps(data);
     initForm(data);
+})
+
+$('#print-button').on('click', () => {
+    console.log("se activo");
+
+    printJS({
+        printable: 'content-to-print',
+        type: 'html',
+        targetStyles: ['*'],
+        css: '../../fonts/handgotb.TTF'
+    });
 })
 
 //Cambio a la vista de tabla o grilla
@@ -223,6 +236,8 @@ function resetForm(data) {
     });
 }
 
+
+
 function fillForm(data) {
     $form.querySelectorAll('input, textarea, select').forEach(input => {
         const name = input.getAttribute('name');
@@ -245,22 +260,45 @@ function fillForm(data) {
                     $editFileInput.classList.add('hidden');
                     $spanName.textContent = ""
                 }
-        
-            //para el textarea de summernote
+
+                //para el textarea de summernote
             } else if (input.getAttribute('id') == 'summernote') {
                 const summernoteInstance = $('#summernote');
                 summernoteInstance.summernote('code', `<p>${value}</p>`)
-        
-            //para los checkbox
+
+                //para los checkbox
             } else if (input.getAttribute('type') == "checkbox") {
                 input.checked = value  // Ajusta según el valor esperado
-        
-            //para el resto de campos
+
+            } else if (input.id === 'input-age-player') {
+                let birthDate = $form.querySelector('#input-birthdate-player').value;
+                input.value = calcularEdad(birthDate);
+
+                //para el resto de campos
             } else {
                 input.value = value;
             }
         }
     })
+}
+
+$('#input-birthdate-player').on('change', function () {
+    let birthDate = $(this).val();
+    $('#input-age-player').val(calcularEdad(birthDate));
+})
+
+
+const calcularEdad = (fecha) => {
+    let hoy = new Date();
+    let cumpleanos = new Date(fecha);
+    let edad = hoy.getFullYear() - cumpleanos.getFullYear();
+    let m = hoy.getMonth() - cumpleanos.getMonth();
+
+    if (m < 0 || (m === 0 && hoy.getDate() < cumpleanos.getDate())) {
+        edad--;
+    }
+
+    return edad;
 }
 
 

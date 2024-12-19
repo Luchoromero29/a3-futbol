@@ -1,5 +1,5 @@
 <form id="infoGeneral-player-form" class="px-6 flex flex-col lg:gap-24">
-    <main
+    <main id="content-to-print"
         class="relative grid lg:grid-cols-2 lg:grid-rows-3  pt-[100px]  grid-cols-1 grid-rows-3 2xl:grid-cols-3 2xl:grid-rows-1 gap-8 grid-cols-s grid-rows-3">
         <div class="col-span-1 row-span-1 lg:row-span-2 flex flex-col gap-12 items-center justify-start">
             <div class="flex justify-center items-start px-4">
@@ -63,12 +63,12 @@
             </label>
             <label class="flex items-center justify-end gap-4  w-full">
                 <span>Nacimiento</span>
-                <input type="date" name="name_8"
+                <input type="date" name="name_8" id="input-birthdate-player"
                     class="w-[75%] lg:w-[75%]  p-1 rounded-lg border-2 caret-green border-dark-gray-bg/30 hover:border-green ">
             </label>
             <label class="flex items-center justify-end gap-4  w-full">
                 <span>Edad</span>
-                <input type="text" name="name_9"
+                <input type="text" id="input-age-player" name="name_9" readonly
                     class="w-[75%] lg:w-[75%] input-45 p-1 rounded-lg border-2 caret-green border-dark-gray-bg/30 hover:border-green ">
             </label>
             <label class="flex items-center justify-end gap-4  w-full">
@@ -116,19 +116,19 @@
             </button>
         </div>
         <div class="flex items-center justify-center gap-5">
-            <div class="flex items-center justify-center gap-2">
+            <div class="miplantel-button-trasnferencia flex items-center justify-center gap-2 cursor-pointer">
                 <div class="rounded-md border-2 border-dark-gray-bg bg-black">
                     <img src="../../assets/imgs/arrow-tr-white.png" alt="" class="w-7">
                 </div>
                 <p>Transferencia</p>
             </div>
-            <div class="flex items-center justify-center gap-2">
+            <div id="print-button" class="flex items-center justify-center gap-2 cursor-pointer">
                 <div class="rounded-md border-2 border-dark-gray-bg bg-black">
                     <img src="../../assets/imgs/print-white.png" alt="" class="w-7">
                 </div>
                 <p>Imprimir</p>
             </div>
-            <div class="flex items-center justify-center gap-2">
+            <div class="flex items-center justify-center gap-2 cursor-pointer">
                 <div class="rounded-md border-2 border-dark-gray-bg bg-black">
                     <img src="../../assets/imgs/10 eliminar hover.png" alt="" class="w-7">
                 </div>

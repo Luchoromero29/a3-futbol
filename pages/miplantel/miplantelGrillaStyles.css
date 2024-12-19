@@ -88,3 +88,23 @@
 .created #miplantel-row-divider {
     background-color: var(--green)!important;
 }
+
+
+
+/* ESTILOS DEL CAROUSEL */
+
+.carousel {
+    overflow-x: auto;
+    white-space: nowrap;
+    display: flex;
+    scroll-behavior: smooth;
+    width: 100%;
+    padding: 10px 0;
+}
+
+.carousel::-webkit-scrollbar {
+    height: 8px; /* Altura del scrollbar horizontal */
+    width: 8px; /* Ancho del scrollbar vertical, si lo hubiera */
+}
+
+

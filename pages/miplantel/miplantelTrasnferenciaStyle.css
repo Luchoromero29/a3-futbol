@@ -1,0 +1,3 @@
+.checkbox-selected {
+    border-color: var(--green) !important;
+}

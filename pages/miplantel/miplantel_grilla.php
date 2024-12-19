@@ -13,58 +13,43 @@
             </a>
         </header>
         <main class="w-full flex flex-col ">
-             <div class="" id="container-rows-miplantel-grilla">
-                <!--<div id="miplantel-row-grilla" class="text-dark-gray-bg w-full flex flex-col hover:text-green ${empty}">
-                    <header class="header-row-grilla h-[30px] flex gap-2 items-center justify-center w-full">
-                        <div class="flex gap-1 text-nowrap   items-center">
-                            <label class="w-fit">
-                                <p></p>
-                                <input value="Perfectooo" class="focus:outline-none bg-transparent  caret-green"
-                                    type="text" />
-                            </label>
-                            <p id="miplantel-row-count">(5)</p>
-                            <div id="miplantel-row-options"
-                                class="hidden border-[1px] w-[100px] border-dark-gray-bg bg-white flex items-center justify-between gap-3 p-1 rounded-md">
-                                <div>
-                                    <img id="miplantel-icon-add-row" class="w-4"
-                                        src="../../assets/imgs/plus-black.png" />
-                                </div>
-                                <div>
-                                    <img id="miplantel-icon-edit-row" class="w-4"
-                                        src="../../assets/imgs/pencil-black.png" />
-                                </div>
-                                <div>
-                                    <img id="miplantel-icon-delete-row" class="w-4"
-                                        src="../../assets/imgs/delete-black.png" />
-                                </div>
-                            </div>
-                        </div>
-                        <div id="miplantel-row-divider" class="w-full h-[2px] bg-dark-gray-bg"></div>
-                    </header>
-                    <main>
-                        <div class="dropzone flex items-center min-h-[60px] gap-4 py-4 row-asigned">
+            <div class="" id="container-rows-miplantel-grilla">
 
-                        </div>
-                    </main>
-                </div> -->
-            </div> 
+            </div>
             <div id="miplantel-row-sinasignar-grilla" class="text-dark-gray-bg w-full flex flex-col hover:text-green">
                 <header class="flex gap-2 items-center justify-center w-full">
                     <div class="flex gap-1 text-nowrap flex-nowrap  items-center">
                         <p>SIN ASIGNAR</p>
                         <p id="miplantel-sinasignar-count"></p>
+                        <div id="miplantel-sinasignar-row-options"
+                            class="hidden border-[1px] w-[40px] border-dark-gray-bg bg-white flex items-center justify-center gap-3 p-1 rounded-md">
+                            <div>
+                                <img id="miplantel-icon-add-first-row" class="w-4" src="../../assets/imgs/plus-black.png" />
+                            </div>
+                        </div>
                     </div>
                     <div id="miplantel-row-sinasignar-divider" class="w-full h-[2px] bg-dark-gray-bg"></div>
                 </header>
-                <main>
-                    <div class="dropzone flex items-center min-h-[60px] gap-4 py-4 row-not-asigned" id="0">
+                <main class="relative flex items-center">
+                    <div class="flex items-center justify-center">
+                        <button id="miplantel-carousel-left-button"
+                            class=" text-gray-bg text-3xl hover:text-green duration-150 p-3">
+                            <
+                        </button>
+                    </div>
+                    <div class="carousel ">
+                        <div class="dropzone flex items-center min-h-[60px] w-full gap-4 py-4 row-not-asigned" id="0">
 
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-center">
+                        <button id="miplantel-carousel-right-button"
+                            class="text-gray-bg text-3xl hover:text-green duration-150 p-3">></button>
                     </div>
                 </main>
             </div>
         </main>
     </div>
     <footer>
-
     </footer>
 </section>
