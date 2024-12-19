@@ -107,7 +107,7 @@ export const cargarVista = () => {
         $miplantelTable.classList.add('hidden');
         $miplantelGrilla.classList.remove('hidden');
         renderRows();
-
+        
     } else {
         $buttonList.classList.add('hidden');
         $buttonGrid.classList.remove('hidden');

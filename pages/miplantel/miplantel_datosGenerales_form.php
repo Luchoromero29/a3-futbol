@@ -128,7 +128,7 @@
                 </div>
                 <p>Imprimir</p>
             </div>
-            <div class="flex items-center justify-center gap-2 cursor-pointer">
+            <div id="button-delete-player-form" class="flex items-center justify-center gap-2 cursor-pointer">
                 <div class="rounded-md border-2 border-dark-gray-bg bg-black">
                     <img src="../../assets/imgs/10 eliminar hover.png" alt="" class="w-7">
                 </div>

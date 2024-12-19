@@ -1,5 +1,7 @@
 import { showErrorInput, removeErrorInput, showAlert, mostrarSuccessMessage } from "../../utilities/functionsUtils.js";
-import { cargarVista, setCurrentPlayer, currentPlayer } from './miplantel.js';
+import { cargarVista, setCurrentPlayer, currentPlayer, removePlayer } from './miplantel.js';
+import { showModal } from "../../utilities/modalDelete/modalDelete.js";
+import { renderTable } from "./miplantelTable.js";
 //variables necesarias
 let currentFlap;
 const itemId = "player_id"
@@ -368,6 +370,9 @@ $('#miplantel-button-save-form').on('click', function (e) {
     if (entries["name_2"] === "") {
         showErrorInput($form, "name_2")
         showAlert("Debes completar todos los campos obligatorios (*)")
+        setTimeout(() => {
+            removeErrorInput($form, "name_2");
+        }, 2000)
         return;
     }
 
@@ -379,6 +384,23 @@ $('#miplantel-button-save-form').on('click', function (e) {
     }
     toViewList();
 });
+
+$('#button-delete-player-form').on('click', function (e) {
+
+    showModal(
+        "Desea eliminar al jugador actual?",
+        "Si",
+        "No",
+        () => {
+            removePlayer(currentPlayer.id); 
+            renderTable();
+            toViewList();
+            mostrarSuccessMessage(`Jugador ${currentPlayer.name} eliminado con éxito`)
+        },
+        () => {}
+    )
+
+})
 
 
 

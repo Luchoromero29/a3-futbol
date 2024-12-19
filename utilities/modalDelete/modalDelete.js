@@ -5,10 +5,6 @@ export const showModal = (titleText, confirmText, cancelText, onConfirm, onCance
     const modalConfirm = document.getElementById('modalConfirm');
     const modalCancel = document.getElementById('modalCancel');
 
-    console.log(modal);
-    console.log(modalTitle);
-    console.log(modalConfirm);
-    console.log(modalCancel);    
 
     // Cambiamos los textos dinámicos
     modalTitle.textContent = titleText;
